@@ -1,13 +1,9 @@
 import express from "express";
 import cors from "cors"
 
-import { t } from "./trpc";
 import * as trpcExpress from '@trpc/server/adapters/express'
 
- import {appRouter} from './routers'
-
-
-
+import {appRouter} from './routers/router'
 
 const app = express();
 app.use(cors({ origin: "http://localhost:5173" }));

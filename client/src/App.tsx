@@ -1,6 +1,8 @@
 import { Compteur, Message } from "./components/Test";
 import { createTRPCProxyClient, httpBatchLink } from "@trpc/client";
- import { AppRouter } from "../../joystash-server/server";
+ import { AppRouter } from "../../server/server";
+import { text } from "stream/consumers";
+import { useState } from "react";
 const client = createTRPCProxyClient<AppRouter>({
   links: [
     httpBatchLink({
@@ -9,21 +11,32 @@ const client = createTRPCProxyClient<AppRouter>({
   ],
 });
 
-async function main() {
-  const res = await client.sayHi.query();
-  console.log(res);
-  const res2 = await client.logToServer.mutate("Hi from client")
-  console.log(res2)
-  const res3 = await client.users.getGame.query();
-  console.log(res);
-}
-main();
+
+
 
 function App() {
+  const [previewMessage,setPreviewMessage]=useState<string>("")
+  async function main(e:React.SyntheticEvent) {
+    e.preventDefault();
+    const res = await client.greeting.query();
+    console.log(res); 
+    const resMessage = await client.testInput.mutate(previewMessage);
+    console.log(resMessage);  
+  }
+  function previewInput(e:React.FormEvent<HTMLInputElement>){
+    setPreviewMessage(e.currentTarget.value)
+  }
   return (
     <div>
       <Compteur />
       <Message message="Coucou les gens" />
+      
+      <form onSubmit={main}>
+
+      <label>Message <input type="text" onChange={previewInput}/></label>
+      <p>preview : {previewMessage}</p>
+      <button type="submit">envoyer</button>
+      </form>
     </div>
   );
 }
