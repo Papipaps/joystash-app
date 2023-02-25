@@ -1,8 +1,9 @@
 import { Compteur, Message } from "./components/Test";
 import { createTRPCProxyClient, httpBatchLink } from "@trpc/client";
- import { AppRouter } from "../../server/server";
+import { AppRouter } from "../../server/server";
 import { text } from "stream/consumers";
 import { useState } from "react";
+import { Game } from "./types-aliases/TypeGame";
 const client = createTRPCProxyClient<AppRouter>({
   links: [
     httpBatchLink({
@@ -11,32 +12,65 @@ const client = createTRPCProxyClient<AppRouter>({
   ],
 });
 
-
-
-
 function App() {
-  const [previewMessage,setPreviewMessage]=useState<string>("")
-  async function main(e:React.SyntheticEvent) {
+  const [previewMessage, setPreviewMessage] = useState<string>("");
+  const [gameList, setGameList] = useState<Array<Game> | null>(null);
+
+  async function main(e: React.SyntheticEvent) {
     e.preventDefault();
     const res = await client.greeting.query();
-    console.log(res); 
+    console.log(res);
     const resMessage = await client.testInput.mutate(previewMessage);
-    console.log(resMessage);  
+    console.log(resMessage);
   }
-  function previewInput(e:React.FormEvent<HTMLInputElement>){
-    setPreviewMessage(e.currentTarget.value)
+
+  function getGameList() {
+    client.getGames.query({ page: 1, page_size: 9 }).then((res) => {
+      const data: [Game] = res.results;
+      setGameList(data.map(({ ...Game }) => ({ ...Game })));
+    });
   }
+
+  function previewInput(e: React.FormEvent<HTMLInputElement>) {
+    setPreviewMessage(e.currentTarget.value);
+  }
+
   return (
     <div>
       <Compteur />
       <Message message="Coucou les gens" />
-      
-      <form onSubmit={main}>
 
-      <label>Message <input type="text" onChange={previewInput}/></label>
-      <p>preview : {previewMessage}</p>
-      <button type="submit">envoyer</button>
+      <form onSubmit={main}>
+        <label>
+          Message <input type="text" onChange={previewInput} />
+        </label>
+        <p>preview : {previewMessage}</p>
+        <button type="submit">envoyer</button>
       </form>
+
+      <button onClick={getGameList}>FETCH GAME</button>
+      <div style={{
+        display:"grid",
+        gridTemplateColumns:"1fr 1fr 1fr"
+      }}>
+        {gameList?.map((game) => (
+          <div style={{
+            width:'600px'
+          }}>
+            <h2>{game.name}</h2>
+            <div>
+
+            <img
+            style={{
+              width:"100%"
+
+            }}
+              src={game.background_image}
+              ></img>
+              </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

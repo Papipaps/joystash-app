@@ -1,8 +1,9 @@
-export type Games = {
+export type Game = {
   id: number;
   name: string;
   slug: string;
   rating: number;
+  background_image:string,
   ratings?: [
     {
       id: number;
