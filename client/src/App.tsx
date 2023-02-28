@@ -1,9 +1,11 @@
 import { Compteur, Message } from "./components/Test";
-import { createTRPCProxyClient, httpBatchLink } from "@trpc/client";
+import { createTRPCProxyClient, httpBatchLink, httpLink } from "@trpc/client";
 import { AppRouter } from "../../server/server";
 import { text } from "stream/consumers";
 import { useState } from "react";
 import { Game } from "./types-aliases/TypeGame";
+import { GameResponseObject } from "./types-aliases/gameResultObject";
+import React from "react";
 const client = createTRPCProxyClient<AppRouter>({
   links: [
     httpBatchLink({
@@ -15,20 +17,19 @@ const client = createTRPCProxyClient<AppRouter>({
 function App() {
   const [previewMessage, setPreviewMessage] = useState<string>("");
   const [gameList, setGameList] = useState<Array<Game> | null>(null);
+  const [page, setPage] = useState<number>(1);
+  const [pageSize, setPageSize] = useState<number>(9);
 
-  async function main(e: React.SyntheticEvent) {
-    e.preventDefault();
-    const res = await client.greeting.query();
-    console.log(res);
-    const resMessage = await client.testInput.mutate(previewMessage);
-    console.log(resMessage);
-  }
+  React.useEffect(() => {
+    getGameList();  
+  }, []); 
 
   function getGameList() {
-    client.getGames.query({ page: 1, page_size: 9 }).then((res) => {
-      const data: [Game] = res.results;
-      setGameList(data.map(({ ...Game }) => ({ ...Game })));
-    });
+    client.game.list
+      .query({ page, pageSize })
+      .then((response: GameResponseObject) => {
+        setGameList(response.results.map(({ ...Game }) => ({ ...Game })));
+      });
   }
 
   function previewInput(e: React.FormEvent<HTMLInputElement>) {
@@ -36,38 +37,29 @@ function App() {
   }
 
   return (
-    <div>
-      <Compteur />
-      <Message message="Coucou les gens" />
-
-      <form onSubmit={main}>
-        <label>
-          Message <input type="text" onChange={previewInput} />
-        </label>
-        <p>preview : {previewMessage}</p>
-        <button type="submit">envoyer</button>
-      </form>
-
+    <div> 
       <button onClick={getGameList}>FETCH GAME</button>
-      <div style={{
-        display:"grid",
-        gridTemplateColumns:"1fr 1fr 1fr"
-      }}>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr 1fr",
+        }}
+      >
         {gameList?.map((game) => (
-          <div style={{
-            width:'600px'
-          }}>
+          <div
+            style={{
+              width: "600px",
+            }}
+          >
             <h2>{game.name}</h2>
             <div>
-
-            <img
-            style={{
-              width:"100%"
-
-            }}
-              src={game.background_image}
+              <img
+                style={{
+                  width: "100%",
+                }}
+                src={game.background_image}
               ></img>
-              </div>
+            </div>
           </div>
         ))}
       </div>

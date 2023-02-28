@@ -11,3 +11,10 @@ services:
       POSTGRES_PASSWORD: ${PG_PASSWORD}
     ports:
       - "${PG_PORT}:5432"
+  pg-admin:
+    image: dpage/pgadmin4:6.20
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+    ports:
+      - "5050:80"
