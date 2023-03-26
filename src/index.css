@@ -1,0 +1,16 @@
+  @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Rubik:ital,wght@0,400;0,500;1,700&display=swap');
+body {
+  padding: 0;
+  margin: 0;
+}
+* {
+  box-sizing: border-box;
+}
+.app {
+  width: 100vw;
+  /* --anek-font: "Anek Malayalam", sans-serif;
+  --new-cycle-font: "News Cycle", sans-serif;
+  --staat-font: "Staatliches", cursive; */
+  --text-font: "Roboto", sans-serif;
+  --title-font: "Rubik", sans-serif;
+}

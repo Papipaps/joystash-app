@@ -1,0 +1,80 @@
+ .card {
+
+  min-width: 400px;
+  max-width: 600px;
+  display: grid;
+  grid-gap: 10px;
+  background-color: #fff;
+  padding: 10px;
+  margin-bottom: 50px;
+}
+
+.title {
+  font-size: 20px;
+  margin: 0;
+}
+
+.card-content {
+  /* border: 1px solid #ccc; */
+  box-shadow: 0 5px 10px 1px rgb(236, 236, 236);
+  padding: 20px;
+  border-radius: 25px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 10px; 
+  height: 250px;
+  
+}
+
+.left-column {
+  overflow: scroll;
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+}
+
+
+
+.item-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  grid-gap: 12px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.item-list li:hover,
+.item-list li:focus {
+  filter: brightness(0.95);
+  cursor: pointer;
+}
+.item-list li {
+  padding: 5px;
+  box-sizing: border-box;
+  background-color: #f2f2f2;
+  border-radius: 3px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.right-column {
+  position: relative;
+  display: flex;
+  align-items: center; 
+  height: 200px;
+}
+.right-column img {
+  object-fit: contain;
+  width: 100%;
+  aspect-ratio: 1/1;
+  padding: 5px;
+}
+.right-column svg{ 
+  position: absolute;
+  right: 40%;
+  scale: 3;
+}

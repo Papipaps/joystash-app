@@ -1,0 +1,39 @@
+.wrapper {
+  position: relative;
+  cursor: pointer;
+}
+.banner-overlay {
+  position: absolute;
+  color: white;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.banner-overlay > * {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.banner-overlay .title {
+  height: fit-content;
+  font-family: "Staatliches", cursive;
+  position: absolute; 
+}
+.title {
+  display: flex;
+  align-content: center;
+  width: 100%;
+  justify-content: center;
+}
+.description {
+  padding: 25px 25px;
+  overflow-wrap: break-word;
+  overflow: hidden;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 30%;
+  font-family: "News Cycle", sans-serif;
+}
