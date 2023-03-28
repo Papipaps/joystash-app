@@ -1,12 +1,18 @@
 import "../styles/Home.css";
 import Carousel from "./Carrousel";
 import Drawings from "../assets/drawings/drawings-exports";
-import { Avatar, Divider } from "@mui/material";
+import { Avatar } from "@mui/material";
 import About from "./About";
 import Footer from "./Footer";
 import { useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import Navbar from "./Navbar";
+import EditIcon from "@mui/icons-material/Edit";
+import LinkOffIcon from "@mui/icons-material/LinkOff";
+import GroupIcon from "@mui/icons-material/Group";
+import PsychologyAltIcon from "@mui/icons-material/PsychologyAlt";
+import TechIcons from "../assets/tech/techimages-export";
+import BulletPoint from "./BulletPoint";
 
 const Home = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -15,6 +21,25 @@ const Home = () => {
   const [timeline, SetTimeline1] = useState<gsap.core.Timeline>();
 
   const toggleActive = () => setActive((prevState) => !prevState);
+
+  const softSkills = [
+    { name: "Curiosité", icon: <PsychologyAltIcon /> },
+    { name: "Sens du collectif", icon: <GroupIcon /> },
+    { name: "Autonomie", icon: <LinkOffIcon /> },
+    { name: "Créativité", icon: <EditIcon /> },
+  ];
+  const techSkills = [
+    { name: "Java", imageUrl: TechIcons.java },
+    { name: "Springboot", imageUrl: TechIcons.spring },
+    { name: "React", imageUrl: TechIcons.react },
+    { name: "Typescript", imageUrl: TechIcons.ts },
+    { name: "Docker", imageUrl: TechIcons.docker },
+    { name: "Jenkins", imageUrl: TechIcons.jenkins },
+    { name: "Mongodb", imageUrl: TechIcons.mongodb },
+    { name: "Elasticsearch", imageUrl: TechIcons.elasticsearch },
+    { name: "Postgresql", imageUrl: TechIcons.pgsql },
+    { name: "Neo4j", imageUrl: TechIcons.neo4j },
+  ];
 
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
@@ -58,28 +83,56 @@ const Home = () => {
       <Navbar />
       <main className="home-container">
         <header>
-          <h1>BIENVENUE</h1>
-          <div onClick={toggleActive} className="hero-wrapper">
-            <div ref={heroRef} className="hero">
-              <Avatar
-                className="header-avatar"
-                alt="Jordan P"
-                sx={{ width: 125, height: 125 }}
-                sizes="100px"
-              />
-              <p ref={heroTextRef}>Bonjour</p>
+          <h1 className="home-btn">BIENVENUE</h1>
+          <div className="container">
+            <div className="avatar-wrapper">
+              <div onClick={toggleActive} ref={heroRef} className="avatar">
+                <Avatar
+                  src={Drawings.jojo}
+                  className="header-avatar"
+                  alt="avatar de papipaps"
+                  sx={{ width: 125, height: 125 }}
+                />
+                <p ref={heroTextRef}>easter egg</p>
+              </div>
+            </div>
+            <div className="hero">
+              <div className="hero-left">
+                <div>
+                  <h2>TITLE</h2>
+                  <p>
+                    Salut ! Je suis un développeur web, mais aussi un créatif et
+                    je profite de mes compétences en web pour vous proposer ce
+                    portfolio écrit en React avec Typescript. 😊👍
+                  </p>
+                </div>
+                <p>
+                  Description : Lorem ipsum dolor sit amet consectetur
+                  adipisicing elit. Placeat natus quam ut voluptatum adipisci
+                  temporibus tempora eligendi doloremque optio. Iure rerum
+                  asperiores earum corrupti similique, totam quam consectetur
+                  quod modi.
+                </p>
+              </div>
+              <div className="hero-right">
+                <Carousel
+                  images={[Drawings.bee, Drawings.couki, Drawings.bunny]}
+                />
+              </div>
             </div>
           </div>
         </header>
-        <p>
-          Salut ! Je suis un développeur web, mais aussi un créatif et je
-          profite de mes compétences en web pour vous proposer ce portfolio
-          écrit en React avec Typescript. 😊👍
-        </p>
-        <div className="home-carousel-wrapper">
-          <Carousel images={[Drawings.bee, Drawings.couki, Drawings.bunny]} />
+        <div className="about-wrapper">
+          <About />
         </div>
-        <About />
+        <div className="bullet-wrapper">
+          {/* <BulletPoint title="Compétences techniques" items={techSkills} /> */}
+          {/* <BulletPoint title="Qualités personnelles" items={softSkills} /> */}
+        </div>
+        <div className="showcase-btn">
+          <h2>Allez vers la gallerie</h2>
+          <button>Suivant</button>
+        </div>
         <Footer />
       </main>
     </>

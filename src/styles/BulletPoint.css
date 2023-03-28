@@ -1,7 +1,5 @@
- .card {
-
-  min-width: 400px;
-  max-width: 600px;
+.bullet { 
+  width: 600px;
   display: grid;
   grid-gap: 10px;
   background-color: #fff;
@@ -14,33 +12,28 @@
   margin: 0;
 }
 
-.card-content {
-  /* border: 1px solid #ccc; */
-  box-shadow: 0 5px 10px 1px rgb(236, 236, 236);
+.bullet-content {
+  box-shadow: 0 5px 10px 1px rgb(202, 202, 202);
   padding: 20px;
   border-radius: 25px;
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-gap: 10px; 
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 10px;
   height: 250px;
-  
 }
 
 .left-column {
   overflow: scroll;
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   justify-content: center;
 }
-
-
 
 .item-list {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   grid-gap: 12px;
   max-height: 300px;
   overflow-y: auto;
@@ -58,22 +51,24 @@
   border-radius: 3px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
   border-radius: 20px;
-  padding: 10px;
+  padding: 10px; 
+  width: 150px;
 }
 
 .right-column {
   position: relative;
   display: flex;
-  align-items: center; 
+  justify-content: center;
+  align-items: center;
   height: 200px;
 }
 .right-column img {
   object-fit: contain;
-  width: 100%;
+  width: 60%;
   aspect-ratio: 1/1;
   padding: 5px;
 }
-.right-column svg{ 
+.right-column svg {
   position: absolute;
   right: 40%;
   scale: 3;

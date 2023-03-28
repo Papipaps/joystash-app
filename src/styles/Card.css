@@ -1,0 +1,13 @@
+.card {
+  text-align: justify;
+  padding: 10px; 
+}
+.card-title {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+.card-description {
+    margin: 0;
+  padding: 10px;
+}

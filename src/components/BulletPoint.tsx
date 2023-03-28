@@ -48,16 +48,17 @@ const BulletPoint: React.FC<Props> = ({ title, items }) => {
   }, []);
 
   return (
-    <div className="card">
+    <div className="bullet">
       <h2 className="title">{title}</h2>
-      <div className="card-content">
+      <div className="bullet-content">
         <div className="left-column">
           <ul className="item-list">
             {items.map((item, index) => (
               <li
                 style={{
-                  background: colors[index],
-                  color: isDarkColor(colors[index]) ? "white" : "black",
+                  border:'1px solid',
+                  background: 'white',
+                  // color: isDarkColor(colors[index]) ? "white" : "black",
                 }}
                 onClick={() => setSelected(item)}
                 key={index}
