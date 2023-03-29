@@ -12,7 +12,7 @@ import LinkOffIcon from "@mui/icons-material/LinkOff";
 import GroupIcon from "@mui/icons-material/Group";
 import PsychologyAltIcon from "@mui/icons-material/PsychologyAlt";
 import TechIcons from "../assets/tech/techimages-export";
-import BulletPoint from "./BulletPoint";
+import BulletList from "./BulletList";
 
 const Home = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -29,16 +29,25 @@ const Home = () => {
     { name: "Créativité", icon: <EditIcon /> },
   ];
   const techSkills = [
-    { name: "Java", imageUrl: TechIcons.java },
-    { name: "Springboot", imageUrl: TechIcons.spring },
-    { name: "React", imageUrl: TechIcons.react },
-    { name: "Typescript", imageUrl: TechIcons.ts },
-    { name: "Docker", imageUrl: TechIcons.docker },
-    { name: "Jenkins", imageUrl: TechIcons.jenkins },
-    { name: "Mongodb", imageUrl: TechIcons.mongodb },
-    { name: "Elasticsearch", imageUrl: TechIcons.elasticsearch },
-    { name: "Postgresql", imageUrl: TechIcons.pgsql },
-    { name: "Neo4j", imageUrl: TechIcons.neo4j },
+    {
+      name: "Java",
+      imageUrl: TechIcons.java,
+      description:
+        "Mon langage de coeur, la majorité de mes projets sont fait en Java et mon but est de maitriser ce langage qui est robuste et très polivalent",
+    },
+    { name: "Springboot", imageUrl: TechIcons.spring, description: "" },
+    { name: "React", imageUrl: TechIcons.react, description: "" },
+    { name: "Typescript", imageUrl: TechIcons.ts, description: "" },
+    { name: "Docker", imageUrl: TechIcons.docker, description: "" },
+    { name: "Jenkins", imageUrl: TechIcons.jenkins, description: "" },
+    { name: "Mongodb", imageUrl: TechIcons.mongodb, description: "" },
+    {
+      name: "Elasticsearch",
+      imageUrl: TechIcons.elasticsearch,
+      description: "",
+    },
+    { name: "Postgresql", imageUrl: TechIcons.pgsql, description: "" },
+    { name: "Neo4j", imageUrl: TechIcons.neo4j, description: "" },
   ];
 
   useLayoutEffect(() => {
@@ -126,7 +135,7 @@ const Home = () => {
           <About />
         </div>
         <div className="bullet-wrapper">
-          {/* <BulletPoint title="Compétences techniques" items={techSkills} /> */}
+          <BulletList title="Compétences techniques" items={techSkills} />
           {/* <BulletPoint title="Qualités personnelles" items={softSkills} /> */}
         </div>
         <div className="showcase-btn">
