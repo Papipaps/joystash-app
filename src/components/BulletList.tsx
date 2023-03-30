@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import "../styles/BulletList.css";
 
-type Props = {
-  title: string;
+type Props = {  
   items: BulletItem[];
 };
 
@@ -12,11 +11,11 @@ type BulletItem = {
   description?: string;
 };
 
-const BulletPoint: React.FC<Props> = ({ title, items }) => {
+const BulletPoint: React.FC<Props> = ({items}) => {
   const [selected, setSelected] = useState<BulletItem>(items[0]);
 
   return (
-    <div className="bullet-wrapper">
+    <div className="bullet-container">
       <div className="bullet">
         <div className="bullet-image">
           <img src={selected.imageUrl} alt={selected.name} className="image" />

@@ -1,11 +1,15 @@
 @media (width>=800px) {
   .cards-wrapper {
     display: flex;
-    max-width: 1000px;
-    justify-content: space-evenly;
+    margin: 0px 50px;
   }
 
   .cards-wrapper > * {
-    margin: 70px 20px;
+    margin: 30px 20px;
   }
+}
+
+.about-title {
+  text-align: center;
+  margin: 50px; 
 }

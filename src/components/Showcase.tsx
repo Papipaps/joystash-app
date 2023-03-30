@@ -1,4 +1,3 @@
-import React from "react";
 import { SelectionProvider } from "./selection-provider";
 import Tekken from "./tekken";
 import UNIB from "./UNIB";

@@ -4,10 +4,10 @@
   margin-top: 55px;
 }
 
-.bullet-wrapper {
+.bullet-container {
   max-width: 450px;
   display: block;
-  border-radius: 25px;
+  border-radius: 10px;
   box-shadow: 0 7px 10px 1px lightgrey;
 }
 
@@ -39,6 +39,8 @@
 }
 
 .bullet .title {
+  font-family: var(--text-font);
+  font-weight: 700;
   text-transform: uppercase;
   max-width: 50%;
   margin-top: 55px;

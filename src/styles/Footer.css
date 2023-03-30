@@ -1,4 +1,21 @@
-.icon{  
-    cursor: pointer;
-    scale: 2;
+.icons-list {
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+  width: 50%;
+}
+
+.icon {
+  cursor: pointer;
+  scale: 1.3;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+footer{
+    margin-top: 70px;
 }

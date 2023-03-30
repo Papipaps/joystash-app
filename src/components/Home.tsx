@@ -22,12 +22,6 @@ const Home = () => {
 
   const toggleActive = () => setActive((prevState) => !prevState);
 
-  const softSkills = [
-    { name: "Curiosité", icon: <PsychologyAltIcon /> },
-    { name: "Sens du collectif", icon: <GroupIcon /> },
-    { name: "Autonomie", icon: <LinkOffIcon /> },
-    { name: "Créativité", icon: <EditIcon /> },
-  ];
   const techSkills = [
     {
       name: "Java",
@@ -91,10 +85,11 @@ const Home = () => {
     <>
       <Navbar />
       <main className="home-container">
+        <div className="background"/>
         <header>
           <h1 className="home-btn">BIENVENUE</h1>
           <div className="container">
-            <div className="avatar-wrapper">
+            {/* <div className="avatar-wrapper">
               <div onClick={toggleActive} ref={heroRef} className="avatar">
                 <Avatar
                   src={Drawings.jojo}
@@ -104,28 +99,20 @@ const Home = () => {
                 />
                 <p ref={heroTextRef}>easter egg</p>
               </div>
-            </div>
+            </div> */}
             <div className="hero">
               <div className="hero-left">
-                <div>
-                  <h2>TITLE</h2>
+                <div className="hero-message">
                   <p>
                     Salut ! Je suis un développeur web, mais aussi un créatif et
                     je profite de mes compétences en web pour vous proposer ce
                     portfolio écrit en React avec Typescript. 😊👍
                   </p>
-                </div>
-                <p>
-                  Description : Lorem ipsum dolor sit amet consectetur
-                  adipisicing elit. Placeat natus quam ut voluptatum adipisci
-                  temporibus tempora eligendi doloremque optio. Iure rerum
-                  asperiores earum corrupti similique, totam quam consectetur
-                  quod modi.
-                </p>
+                </div> 
               </div>
               <div className="hero-right">
                 <Carousel
-                  images={[Drawings.bee, Drawings.couki, Drawings.bunny]}
+                  images={[Drawings.beach, Drawings.couki, Drawings.bunny]}
                 />
               </div>
             </div>
@@ -135,8 +122,7 @@ const Home = () => {
           <About />
         </div>
         <div className="bullet-wrapper">
-          <BulletList title="Compétences techniques" items={techSkills} />
-          {/* <BulletPoint title="Qualités personnelles" items={softSkills} /> */}
+          <BulletList items={techSkills} />
         </div>
         <div className="showcase-btn">
           <h2>Allez vers la gallerie</h2>
