@@ -1,30 +1,106 @@
-nav{
+nav {
+  position: sticky;
+  top: 0;
+  width: 100vw;
+  z-index: 999;
+  height: 50px;
+  background: white;
+}
+nav h3 {
+  margin: 0;
+  padding: 0;
+}
+.mobile-menu {
+  display: none;
+}
+
+.burger-menu {
+  cursor: pointer;
+  display: flex;
+  margin: 0;
+  justify-content: space-around;
+  list-style: none;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+
+.menu-wrapper {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+@media (width<800px) {
+  nav {
+    top: 100%; 
+  }
+
+  .burger-menu {
     display: none;
-    position: fixed;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%);
-    background: red;
-    height: 50px;
-    width: 50vw;
-    z-index: 999;
-    opacity: 0.2;
-    border-radius: 25px 25px 0 0;
-}
+  }
 
-nav:focus-within, nav:hover{
-    opacity: 1;
-    cursor: pointer;
-}
-
-ul{
-    display: flex;
-    margin: 0;
-    padding: 15px 0;
-    justify-content: space-around;
-    list-style: none;
-}
-
-ul a{
+  .mobile-menu a {
+    font-family: var(--text-font);
     text-decoration: none;
+    color: black;
+    font-weight: 600;
+  }
+  .mobile-menu {
+    gap: 70px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    list-style: none;
+  }
+
+  .menu-overlay {
+    display: none;
+  }
+}
+
+.menu-overlay::before {
+  position: absolute;
+  top: -5px;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+
+  transform: translateY(-50%);
+  content: "";
+  height: 10px;
+  width: 10px;
+  background-color: white;
+}
+
+.menu-overlay {
+  position: absolute;
+  opacity: 0.85;
+  height: 170px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+  justify-content: space-around;
+  background: white;
+  border-radius: 10px;
+  margin: 0;
+  right: 50%;
+  transform: translate(50%);
+  top: 60px;
+  padding: 15px 0;
+}
+
+.menu-overlay li {
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  background: white;
+}
+.menu-overlay li:hover {
+  filter: brightness(0.8);
+}
+.menu-overlay a {
+  text-decoration: none;
 }

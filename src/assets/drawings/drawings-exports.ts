@@ -18,7 +18,7 @@ const Drawings = {
     baseball: "src/assets/drawings/(17).png",
     axe: "src/assets/drawings/(18).png",
     yara: "src/assets/drawings/(19).png",
-    greek: "src/assets/drawings/(21).png",
-    jojo: "src/assets/drawings/(22).png"
+    greek: "src/assets/drawings/(20).png",
+    jojo: "src/assets/drawings/(21).png"
 }
 export default Drawings

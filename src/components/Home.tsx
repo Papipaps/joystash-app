@@ -44,62 +44,50 @@ const Home = () => {
     { name: "Neo4j", imageUrl: TechIcons.neo4j, description: "" },
   ];
 
-  useLayoutEffect(() => {
-    let ctx = gsap.context(() => {
-      const tl = gsap.timeline();
-      SetTimeline1(tl);
-    });
-    return () => ctx.revert();
-  }, []);
+  // useLayoutEffect(() => {
+  //   let ctx = gsap.context(() => {
+  //     const tl = gsap.timeline();
+  //     SetTimeline1(tl);
+  //   });
+  //   return () => ctx.revert();
+  // }, []);
 
-  useLayoutEffect(() => {
-    const hero = heroRef.current;
-    const heroText = heroTextRef.current;
-    if (timeline) {
-      timeline.to(hero, {
-        duration: 0.3,
-        ease: "power1.out",
-        left: "20%",
-      });
-      timeline.fromTo(
-        heroText,
-        {
-          position: "absolute",
-          opacity: 0,
-        },
-        {
-          duration: 0.1,
-          ease: "power1.out",
-          position: "static",
-          opacity: 1,
-        }
-      );
-    }
-  }, [timeline]);
+  // useLayoutEffect(() => {
+  //   const hero = heroRef.current;
+  //   const heroText = heroTextRef.current;
+  //   if (timeline) {
+  //     timeline.to(hero, {
+  //       duration: 0.3,
+  //       ease: "power1.out",
+  //       left: "20%",
+  //     });
+  //     timeline.fromTo(
+  //       heroText,
+  //       {
+  //         position: "absolute",
+  //         opacity: 0,
+  //       },
+  //       {
+  //         duration: 0.1,
+  //         ease: "power1.out",
+  //         position: "static",
+  //         opacity: 1,
+  //       }
+  //     );
+  //   }
+  // }, [timeline]);
 
-  useLayoutEffect(() => {
-    timeline && timeline.reversed(!active);
-  }, [active, timeline]);
+  // useLayoutEffect(() => {
+  //   timeline && timeline.reversed(!active);
+  // }, [active, timeline]);
 
   return (
     <>
-      <Navbar />
       <main className="home-container">
-        <div className="background"/>
+        <div className="background" />
         <header>
-          <h1 className="home-btn">BIENVENUE</h1>
-          <div className="container">
-            {/* <div className="avatar-wrapper">
-              <div onClick={toggleActive} ref={heroRef} className="avatar">
-                <Avatar
-                  src={Drawings.jojo}
-                  className="header-avatar"
-                  alt="avatar de papipaps"
-                  sx={{ width: 125, height: 125 }}
-                />
-                <p ref={heroTextRef}>easter egg</p>
-              </div>
-            </div> */}
+          <Navbar />
+          <div className="container"> 
             <div className="hero">
               <div className="hero-left">
                 <div className="hero-message">
@@ -108,11 +96,11 @@ const Home = () => {
                     je profite de mes compétences en web pour vous proposer ce
                     portfolio écrit en React avec Typescript. 😊👍
                   </p>
-                </div> 
+                </div>
               </div>
               <div className="hero-right">
                 <Carousel
-                  images={[Drawings.beach, Drawings.couki, Drawings.bunny]}
+                  images={[Drawings.jojo, Drawings.beach, Drawings.baseball]}
                 />
               </div>
             </div>
