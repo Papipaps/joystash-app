@@ -48,20 +48,12 @@ li {
   }
 }
 
-.avatar {
-  width: fit-content;
-  display: flex;
-  cursor: pointer;
-}
-
-.avatar p {
-  margin-left: 20px;
-}
-
-.avatar-wrapper {
-  display: flex;
-  justify-content: center;
-  margin: 25px;
+.svg-background {
+  position: absolute;
+  top: 556px;
+  left: 65%;
+  scale: 0.5;
+  z-index: -10;
 }
 
 .bullet-wrapper {
@@ -86,18 +78,18 @@ li {
   height: 550px;
 }
 
-.testimony-wrapper svg { 
+.testimony-wrapper svg {
   z-index: -10;
   top: -100%;
-  right: 10%; 
+  right: 10%;
   height: 200px;
 }
-.testimony-wrapper { 
+.testimony-wrapper {
   position: relative;
-  margin: 80px 0; 
+  margin: 80px 0;
 }
-.testimony-selector-wrapper { 
-  display: flex; 
+.testimony-selector-wrapper {
+  display: flex;
   justify-content: center;
   gap: 10px;
 }
@@ -114,7 +106,7 @@ li {
 }
 
 .home-container {
-overflow: hidden;
+  overflow: hidden;
 }
 /* DESKTOP */
 @media (width >= 800px) {
