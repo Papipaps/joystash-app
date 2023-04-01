@@ -2,13 +2,14 @@ import { TestimonyType } from "../assets/Celebrities/celeb-export";
 import "../styles/Testimony.css";
 
 type Props = {
-  testimony: TestimonyType;
+  testimony: TestimonyType; 
 };
 
-function Testimony({ testimony }: Props) {
+function Testimony({ testimony}: Props) {
   const { message, celebrity, job } = testimony;
   return (
-    <div className="testimony-container">
+    <div 
+    className="testimony-container">
       <div className="testimony-message">{message}</div>
       <div className="testimony-celebrity">
         {celebrity}

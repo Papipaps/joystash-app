@@ -86,8 +86,7 @@ li {
   height: 550px;
 }
 
-.testimony-wrapper svg {
-  /* position: absolute; */
+.testimony-wrapper svg { 
   z-index: -10;
   top: -100%;
   right: 10%; 
@@ -95,18 +94,12 @@ li {
 }
 .testimony-wrapper { 
   position: relative;
-  margin: 80px 0;
+  margin: 80px 0; 
 }
-.testimony-selector-wrapper {
-  position: absolute;
-  display: flex;
-  bottom: -20px;
-  width: 100%;
-  padding: 0 20px;
+.testimony-selector-wrapper { 
+  display: flex; 
   justify-content: center;
-  gap: 5px;
-  left: 50%;
-  transform: translateX(-50%);
+  gap: 10px;
 }
 
 .testimony-selector:hover {

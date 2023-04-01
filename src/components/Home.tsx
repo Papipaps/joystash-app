@@ -3,39 +3,51 @@ import Carousel from "./Carrousel";
 import Drawings from "../assets/drawings/drawings-exports";
 import About from "./About";
 import Footer from "./Footer";
-import { useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import Navbar from "./Navbar";
 import TechIcons from "../assets/tech/techimages-export";
 import BulletList from "./BulletList";
 import { fakeTestimonials } from "../assets/Celebrities/celeb-export";
 import Testimony from "./Testimony";
+import { gsap } from "gsap";
+
+const techSkills = [
+  {
+    name: "Java",
+    imageUrl: TechIcons.java,
+    description:
+      "Mon langage de coeur, la majorité de mes projets sont fait en Java et mon but est de maitriser ce langage qui est robuste et très polivalent",
+  },
+  { name: "Springboot", imageUrl: TechIcons.spring, description: "" },
+  { name: "React", imageUrl: TechIcons.react, description: "" },
+  { name: "Typescript", imageUrl: TechIcons.ts, description: "" },
+  { name: "Docker", imageUrl: TechIcons.docker, description: "" },
+  { name: "Jenkins", imageUrl: TechIcons.jenkins, description: "" },
+  { name: "Mongodb", imageUrl: TechIcons.mongodb, description: "" },
+  {
+    name: "Elasticsearch",
+    imageUrl: TechIcons.elasticsearch,
+    description: "",
+  },
+  { name: "Postgresql", imageUrl: TechIcons.pgsql, description: "" },
+  { name: "Neo4j", imageUrl: TechIcons.neo4j, description: "" },
+];
 
 const Home = () => {
-  const [active, setActive] = useState<boolean>(false);
-  const [timeline, SetTimeline1] = useState<gsap.core.Timeline>();
   const [testimonyIndex, SetTestimonyIndex] = useState<number>(0);
+  const testimonyRef = useRef<HTMLDivElement>(null);
 
-  const techSkills = [
-    {
-      name: "Java",
-      imageUrl: TechIcons.java,
-      description:
-        "Mon langage de coeur, la majorité de mes projets sont fait en Java et mon but est de maitriser ce langage qui est robuste et très polivalent",
-    },
-    { name: "Springboot", imageUrl: TechIcons.spring, description: "" },
-    { name: "React", imageUrl: TechIcons.react, description: "" },
-    { name: "Typescript", imageUrl: TechIcons.ts, description: "" },
-    { name: "Docker", imageUrl: TechIcons.docker, description: "" },
-    { name: "Jenkins", imageUrl: TechIcons.jenkins, description: "" },
-    { name: "Mongodb", imageUrl: TechIcons.mongodb, description: "" },
-    {
-      name: "Elasticsearch",
-      imageUrl: TechIcons.elasticsearch,
-      description: "",
-    },
-    { name: "Postgresql", imageUrl: TechIcons.pgsql, description: "" },
-    { name: "Neo4j", imageUrl: TechIcons.neo4j, description: "" },
-  ];
+  useLayoutEffect(() => {
+    let ctx = gsap.context(() => {
+      gsap.fromTo(
+        testimonyRef.current,
+        { opacity: 0 },
+        { opacity: 1, duration: 2 }
+      );
+    });
+
+    return () => ctx.revert();
+  }, [testimonyIndex]);
 
   return (
     <>
@@ -63,15 +75,17 @@ const Home = () => {
           </div>
         </header>
         <div className="testimony-wrapper">
+          <div ref={testimonyRef}>
+            <Testimony testimony={fakeTestimonials[testimonyIndex]} />
+          </div>
           <div className="testimony-selector-wrapper">
             {fakeTestimonials.map((e, index) => (
               <div
-                className="testimony-selector"
+                className={`testimony-selector ${testimonyIndex===index&&"selector-active"}`}
                 onClick={() => SetTestimonyIndex(index)}
               />
             ))}
           </div>
-          {<Testimony testimony={fakeTestimonials[testimonyIndex]} />}
         </div>
         <div className="about-wrapper">
           <About />

@@ -1,9 +1,8 @@
 .testimony-container > * {
   text-align: center; 
-}
+ }
 .testimony-container {
-    margin: 20px;
-  height: 115px; 
+  margin: 20px; 
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,6 +15,8 @@
 .testimony-message {
     margin-bottom: 10px; 
 max-width: 750px;
+font-size: x-large;
+height: 120px;
 }
 .testimony-celebrity {
   margin-top: 20px;
@@ -25,6 +26,9 @@ max-width: 750px;
 }
 .testimony-job {
   font-weight: 300;
+}
+.selector-active{
+  background: var(--accent-color);
 }
 
 @media (width < 800px){
