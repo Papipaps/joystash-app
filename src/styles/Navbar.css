@@ -1,5 +1,5 @@
 nav {
-  position: sticky;
+  position: fixed;
   top: 0;
   width: 100vw;
   z-index: 999;
@@ -35,7 +35,8 @@ nav h3 {
 
 @media (width<800px) {
   nav {
-    top: 100%; 
+    top: unset;
+    bottom: 0;
   }
 
   .burger-menu {

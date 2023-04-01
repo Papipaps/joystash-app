@@ -13,7 +13,7 @@ function Navbar() {
   useEffect(() => {
     const handleExit = (event: MouseEvent) => {
       if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
-        setOpened(false);
+        toggleMenu();
       }
     };
     document.addEventListener("mousedown", handleExit);

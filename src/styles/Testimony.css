@@ -1,0 +1,34 @@
+.testimony-container > * {
+  text-align: center; 
+}
+.testimony-container {
+    margin: 20px;
+  height: 115px; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.testimony-message::after,
+.testimony-message::before
+ {
+    content: '"';
+}
+.testimony-message {
+    margin-bottom: 10px; 
+max-width: 750px;
+}
+.testimony-celebrity {
+  margin-top: 20px;
+  font-family: var(--text-font);
+  font-style: italic;
+  font-weight: 600;
+}
+.testimony-job {
+  font-weight: 300;
+}
+
+@media (width < 800px){
+    .testimony-container {
+         height: 150px;
+       }
+}

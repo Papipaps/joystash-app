@@ -1,26 +1,19 @@
 import "../styles/Home.css";
 import Carousel from "./Carrousel";
 import Drawings from "../assets/drawings/drawings-exports";
-import { Avatar } from "@mui/material";
 import About from "./About";
 import Footer from "./Footer";
-import { useLayoutEffect, useRef, useState } from "react";
-import gsap from "gsap";
+import { useRef, useState } from "react";
 import Navbar from "./Navbar";
-import EditIcon from "@mui/icons-material/Edit";
-import LinkOffIcon from "@mui/icons-material/LinkOff";
-import GroupIcon from "@mui/icons-material/Group";
-import PsychologyAltIcon from "@mui/icons-material/PsychologyAlt";
 import TechIcons from "../assets/tech/techimages-export";
 import BulletList from "./BulletList";
+import { fakeTestimonials } from "../assets/Celebrities/celeb-export";
+import Testimony from "./Testimony";
 
 const Home = () => {
-  const heroRef = useRef<HTMLDivElement>(null);
-  const heroTextRef = useRef<HTMLParagraphElement>(null);
   const [active, setActive] = useState<boolean>(false);
   const [timeline, SetTimeline1] = useState<gsap.core.Timeline>();
-
-  const toggleActive = () => setActive((prevState) => !prevState);
+  const [testimonyIndex, SetTestimonyIndex] = useState<number>(0);
 
   const techSkills = [
     {
@@ -44,50 +37,13 @@ const Home = () => {
     { name: "Neo4j", imageUrl: TechIcons.neo4j, description: "" },
   ];
 
-  // useLayoutEffect(() => {
-  //   let ctx = gsap.context(() => {
-  //     const tl = gsap.timeline();
-  //     SetTimeline1(tl);
-  //   });
-  //   return () => ctx.revert();
-  // }, []);
-
-  // useLayoutEffect(() => {
-  //   const hero = heroRef.current;
-  //   const heroText = heroTextRef.current;
-  //   if (timeline) {
-  //     timeline.to(hero, {
-  //       duration: 0.3,
-  //       ease: "power1.out",
-  //       left: "20%",
-  //     });
-  //     timeline.fromTo(
-  //       heroText,
-  //       {
-  //         position: "absolute",
-  //         opacity: 0,
-  //       },
-  //       {
-  //         duration: 0.1,
-  //         ease: "power1.out",
-  //         position: "static",
-  //         opacity: 1,
-  //       }
-  //     );
-  //   }
-  // }, [timeline]);
-
-  // useLayoutEffect(() => {
-  //   timeline && timeline.reversed(!active);
-  // }, [active, timeline]);
-
   return (
     <>
       <main className="home-container">
         <div className="background" />
         <header>
           <Navbar />
-          <div className="container"> 
+          <div className="container">
             <div className="hero">
               <div className="hero-left">
                 <div className="hero-message">
@@ -106,6 +62,17 @@ const Home = () => {
             </div>
           </div>
         </header>
+        <div className="testimony-wrapper">
+          <div className="testimony-selector-wrapper">
+            {fakeTestimonials.map((e, index) => (
+              <div
+                className="testimony-selector"
+                onClick={() => SetTestimonyIndex(index)}
+              />
+            ))}
+          </div>
+          {<Testimony testimony={fakeTestimonials[testimonyIndex]} />}
+        </div>
         <div className="about-wrapper">
           <About />
         </div>
