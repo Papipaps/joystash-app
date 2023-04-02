@@ -1,14 +1,11 @@
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import {
-  CSSProperties,
-  useState,
   useRef,
   useContext,
   useLayoutEffect,
 } from "react";
 import "../styles/characters-grid.css";
-import CharacterIcon from "./character-icon";
 import { SelectionContext } from "./selection-provider";
 
 export type Character = {
@@ -28,95 +25,76 @@ type Props = {
 function CharactersGrid(props: Props) {
   gsap.registerPlugin(ScrollTrigger);
   const { setSelected } = useContext(SelectionContext);
-  const { style = 1, rows = 8, cols = 8, iconSize = 100, characters } = props;
-  const cells = rows * cols;
-  const emptyCells = cells - characters.length;
-
-  const cellsArray = characters.concat(Array(emptyCells).fill(null));
+  const { style = 2, characters } = props;
 
   function styleSelector(value: number) {
     switch (value) {
-      case 1:
-        return (
-          <div
-            className="grid"
-            style={
-              {
-                "--column_number": cols,
-                "--icon-size": iconSize + "px",
-              } as CSSProperties
-            }
-          >
-            {cellsArray.map((character, index) => (
-              <div
-                onClick={() => setSelected(character.id)}
-                className={`grid-icon ${!character && "grid-empty"}`}
-              >
-                {character && <CharacterIcon img={character.img} />}
-              </div>
-            ))}
-          </div>
-        );
       case 2:
-        const leftIcons = useRef<HTMLDivElement>(null);
-        const middleIcon = useRef<HTMLDivElement>(null);
-        const rightIcons = useRef<HTMLDivElement>(null);
-        const grid = useRef<HTMLDivElement>(null);
+        const leftIconsRef = useRef<HTMLDivElement>(null);
+        const middleIconRef = useRef<HTMLDivElement>(null);
+        const rightIconsRef = useRef<HTMLDivElement>(null);
+        const gridRef = useRef<HTMLDivElement>(null);
         const comp = useRef();
 
         const half = Math.ceil(characters.length / 2);
         const firstHalf = characters.slice(0, half);
         const secondHalf = characters.slice(half);
+        const leftIcons = leftIconsRef.current;
+        const middleIcon = middleIconRef.current;
+        const rightIcons = rightIconsRef.current;
+        const grid = gridRef.current;
 
         useLayoutEffect(() => {
-          let ctx = gsap.context(() => {
-            for (let i = 0; i <= characters.length + 1; i++) {
-              gsap.fromTo(
-                leftIcons.current?.children[i],
-                { left: -9999 },
-                {
-                  scrollTrigger: {
-                    trigger: grid.current,
-                    toggleActions: "restart none none none",
-                  },
-                  left: 0,
-                  duration: Math.random() + 0.2 * (1.05 * i),
-                }
-              );
-              gsap.fromTo(
-                rightIcons.current?.children[i],
-                { right: -9999 },
-                {
-                  scrollTrigger: {
-                    trigger: grid.current,
-                    toggleActions: "restart none none none",
-                  },
-                  right: 0,
-                  duration: Math.random() + 0.2 * (1.05 * i),
-                }
-              );
-            }
-            gsap.fromTo(
-              middleIcon.current,
-              { bottom: -9999, opacity: 0 },
-              {
-                scrollTrigger: {
-                  trigger: grid.current,
-                  toggleActions: "restart none none none",
-                },
-                bottom: 0,
-                opacity: 1,
-                duration: 1,
-                ease: "power4.in",
+          if (leftIcons && middleIcon && rightIcons && grid) {
+            let ctx = gsap.context(() => {
+              for (let i = 0; i <= characters.length + 1; i++) {
+                gsap.fromTo(
+                  leftIcons.children[i],
+                  { left: -9999 },
+                  {
+                    scrollTrigger: {
+                      trigger: grid,
+                      toggleActions: "restart none none none",
+                    },
+                    left: 0,
+                    duration: Math.random() + 0.2 * (1.05 * i),
+                  }
+                );
+                gsap.fromTo(
+                  rightIcons.children[i],
+                  { right: -9999 },
+                  {
+                    scrollTrigger: {
+                      trigger: grid,
+                      toggleActions: "restart none none none",
+                    },
+                    right: 0,
+                    duration: Math.random() + 0.2 * (1.05 * i),
+                  }
+                );
               }
-            );
-          }, comp);
+              gsap.fromTo(
+                middleIcon,
+                { bottom: -9999, opacity: 0 },
+                {
+                  scrollTrigger: {
+                    trigger: grid,
+                    toggleActions: "restart none none none",
+                  },
+                  bottom: 0,
+                  opacity: 1,
+                  duration: 1,
+                  ease: "power4.in",
+                }
+              );
+            }, comp);
 
-          return () => ctx.revert();
+            return () => ctx.revert();
+          }
         }, []);
         return (
-          <div ref={grid} className="grid-2">
-            <div ref={leftIcons} className="grid-left">
+          <div ref={gridRef} className="grid-2">
+            <div ref={leftIconsRef} className="grid-left">
               {firstHalf.map(
                 (character) =>
                   character && (
@@ -130,13 +108,13 @@ function CharactersGrid(props: Props) {
               )}
             </div>
             <div
-              ref={middleIcon}
+              ref={middleIconRef}
               onClick={() =>
                 setSelected(Math.ceil(Math.random() * characters.length))
               }
               className="grid-middle"
             ></div>
-            <div ref={rightIcons} className="grid-right">
+            <div ref={rightIconsRef} className="grid-right">
               {secondHalf.map(
                 (character) =>
                   character && (

@@ -10,18 +10,6 @@ function Navbar() {
   function toggleMenu() {
     setOpened((prevState) => !prevState);
   }
-  useEffect(() => {
-    const handleExit = (event: MouseEvent) => {
-      if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
-        toggleMenu();
-      }
-    };
-    document.addEventListener("mousedown", handleExit);
-
-    return () => {
-      document.removeEventListener("mousedown", handleExit);
-    };
-  }, []);
 
   return (
     <nav>
