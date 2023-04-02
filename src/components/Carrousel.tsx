@@ -27,14 +27,14 @@ const Carrousel: React.FC<CarouselProps> = ({ images }) => {
       <ChevronLeftIcon
         className="carousel-left"
         onClick={() =>
-          setCarouselIndex((prev) => (prev !== 0 ? prev - 1 : prev))
+          setCarouselIndex((prev) => (prev !== 0 ? prev - 1 : images.length-1))
         }
       />
       <ChevronRightIcon
         className="carousel-right"
         onClick={() =>
           setCarouselIndex((prev) =>
-            prev < images.length - 1 ? prev + 1 : prev
+            prev < images.length - 1 ? prev + 1 : 0
           )
         }
       />

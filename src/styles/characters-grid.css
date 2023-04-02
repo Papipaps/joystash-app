@@ -1,19 +1,4 @@
-
-.grid-icon{
-    cursor: pointer;
-  background-color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  aspect-ratio: 1/1;
-  width: var(--icon-size);
-  color: black;
-  font-size: 24px; 
-}
-.grid-icon img{
-  height: 100%;
-object-fit:fill ;
-}
+ 
 
 .grid-empty{
     background-color: green;
@@ -23,21 +8,7 @@ object-fit:fill ;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: lighter;
     content: '?';
-}
-.grid-icon:hover {
-  filter: brightness(1.1);
-}
-.grid-icon:not(:hover){
-  filter: blur(0.5px);
-}
-
-.grid {
-  grid-template-columns: repeat(var(--column_number), var(--icon-size));
-  display: grid;
-  grid-auto-rows: minmax(0, 1fr);
-  width: fit-content;
-  border: 1px black solid;
-}
+} 
 
 .grid-2{  
   display: grid;
@@ -45,16 +16,16 @@ object-fit:fill ;
   width: fit-content;
 }
 
-.grid-2 .icon{
+.grid-2 .grid-icon{
   position: relative;
   height: 400px;
   width: 75px;
 }
-.grid-2 .icon:not(:hover){
+.grid-2 .grid-icon:not(:hover){
   
   filter: grayscale();
 }
-.grid-2 .icon:hover{
+.grid-2 .grid-icon:hover{
   scale: 1.2; 
   z-index: 10;
   filter: brightness(1.1);
@@ -62,7 +33,7 @@ object-fit:fill ;
   cursor: pointer;
 }
 
-.grid-2 .icon img{
+.grid-2 .grid-icon img{
   pointer-events: none;
   position: absolute;
   width: 100%;
@@ -77,6 +48,12 @@ object-fit:fill ;
   width: 75px;
   height: 80%;
   background: gray;
+}
+.grid-2 .grid-middle img{
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .grid-2 .grid-middle:hover{
 filter: brightness(0.5);
@@ -93,20 +70,20 @@ cursor: pointer;
   content: "?";
 }
 
-.grid-left  .icon:nth-child(odd) {
+.grid-left  .grid-icon:nth-child(odd) {
    clip-path: polygon(0% 0%,100% 5%,100% 95%,0% 100%);
    top: -25px;
 }
-.grid-left  .icon:nth-child(even) {
+.grid-left  .grid-icon:nth-child(even) {
   clip-path: polygon(0% 0%,100% 10%,100% 100%,0% 90%);
   top: 25px;
 }
 
-.grid-right  .icon:nth-child(odd) {
+.grid-right  .grid-icon:nth-child(odd) {
   clip-path: polygon(0% 5%,100% 0%,100% 100%,0% 95%);
   top: -25px;
 }
-.grid-right  .icon:nth-child(even) {
+.grid-right  .grid-icon:nth-child(even) {
   top: 25px;
   clip-path: polygon(0% 10%,100% 0%,100% 90%,0% 100%);
 }

@@ -13,7 +13,7 @@ const Drawings = {
     redsketch: "src/assets/drawings/(12).png",
     disco: "src/assets/drawings/(13).png",
     redyellow: "src/assets/drawings/(14).png",
-    pinksun: "src/assets/drawings/(15).png",
+    running: "src/assets/drawings/(15).png",
     bunnysat: "src/assets/drawings/(16).png",
     baseball: "src/assets/drawings/(17).png",
     axe: "src/assets/drawings/(18).png",

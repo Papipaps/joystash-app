@@ -177,7 +177,7 @@ const Home = () => {
               </div>
               <div className="hero-right">
                 <Carousel
-                  images={[Drawings.jojo, Drawings.beach, Drawings.baseball]}
+                  images={[Drawings.jojo, Drawings.running, Drawings.baseball]}
                 />
               </div>
             </div>

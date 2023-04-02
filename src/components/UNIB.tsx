@@ -16,8 +16,7 @@ function UNIB() {
     { id: 8, name: "Yoshimitsu", img: Fighters.fighter18 },
     { id: 9, name: "Lei", img: Fighters.fighter19 },
     { id: 10, name: "Anna", img: Fighters.fighter20 },
-  ];
-  console.log(characters?.find(({ id }) => id === selected));
+  ]; 
   return (
     <div>
       <h1> Under Night In-Birth character select</h1>
