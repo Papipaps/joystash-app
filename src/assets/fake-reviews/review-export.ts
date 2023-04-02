@@ -15,12 +15,12 @@ export const fakeTestimonials: TestimonyType[] = [
     job: "Fondateur et CEO de Oelazone",
     message:
       "Ce développeur est incroyablement talentueux ! Il a réussi à rendre notre plateforme encore plus rapide et efficace, ce qui a considérablement amélioré l'expérience de nos clients. Nous sommes vraiment reconnaissants pour tout son travail !",
-  }, 
+  },
   {
     celebrity: "Elon Muskateer",
     job: "Fondateur et CEO de Test'la",
     message:
-      "Il a réussi à implémenter Mario Kart dans nos voiture, comme ça l'autopilotage pourra enfin servir à quelque chose !",
+      "Il a réussi à implémenter Mario Kart dans nos voitures, comme ça l'autopilotage pourra enfin servir à quelque chose !",
   },
   {
     celebrity: "Sheryl Sandberge",
@@ -33,7 +33,7 @@ export const fakeTestimonials: TestimonyType[] = [
     job: "CEO de Tontube",
     message:
       "Je suis épatée par le travail de ce développeur ! Il a réussi à trouver des moyens uniques de rendre YoutubeLabs encore plus intéressant pour les créateurs de contenu. C'est un véritable innovateur !",
-  }, 
+  },
   {
     celebrity: "Sundar Pichair",
     job: "CEO de Gogole",
@@ -44,7 +44,7 @@ export const fakeTestimonials: TestimonyType[] = [
     celebrity: "Tim Cookie",
     job: "CEO de Pomme",
     message:
-      "Grâce à lui, nous gagnons beaucoup d'argent, et ici chez Pomme, nous aimons l'argent, oui l'argent !"
+      "Jordan a rejoint nos équipes entre 2012 et 2014. A son arrivée, nous savions déjà qu'il allait être un élément clef pour notre entreprise. Son côté avant-gardiste et innovateur nous a permis de gagner beaucoup d'argent, ici chez Pomme nous aimons l'argent !",
   },
   {
     celebrity: "Marissa Mayflyer",

@@ -9,10 +9,13 @@
 }
 .testimony-message::after,
 .testimony-message::before
- {
-    content: '"';
+{
+  content: '"';
 }
 .testimony-message {
+  background: white;
+  font-style: italic;
+  opacity: 0.7;
     margin-bottom: 10px; 
 max-width: 750px;
 font-size: x-large;

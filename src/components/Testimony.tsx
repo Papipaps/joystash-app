@@ -1,4 +1,4 @@
-import { TestimonyType } from "../assets/Celebrities/celeb-export";
+import { TestimonyType } from "../assets/fake-reviews/review-export";
 import "../styles/Testimony.css";
 
 type Props = {

@@ -110,6 +110,9 @@ li {
 }
 /* DESKTOP */
 @media (width >= 800px) {
+  .hero-message {
+    font-size: 1.5rem;
+  }
   .home-container {
     margin-top: 50px;
   }
@@ -165,6 +168,9 @@ li {
   }
 
   .showcase-btn button {
+    border: none; 
+    box-shadow: 0 7px 10px 1px rgba(255, 196, 0,0.2);
+    text-decoration: none;
     text-transform: uppercase;
     cursor: pointer;
     border-radius: 5px;
@@ -245,6 +251,7 @@ li {
     background-color: white;
     height: 400px;
     clip-path: none;
+    border-radius: 15px;
   }
 
   .hero-right .carousel-container {

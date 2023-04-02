@@ -1,15 +1,18 @@
+import Navbar from "./Navbar";
 import { SelectionProvider } from "./selection-provider";
 import Tekken from "./tekken";
 import UNIB from "./UNIB";
+import "../styles/Showcase.css"
 
 function Showcase() {
   return (
-    <div >
+    <main >
+      <Navbar/>
       <SelectionProvider>
         <Tekken />
         <UNIB />
       </SelectionProvider>
-    </div>
+    </main>
   );
 }
 

@@ -53,6 +53,7 @@
 
 .bullet-wrapper .item-list {
   justify-content: flex-start;
+  list-style: none;
   display: flex;
   gap: 10px;
   overflow-x: scroll;

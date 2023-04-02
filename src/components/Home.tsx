@@ -7,9 +7,10 @@ import { useLayoutEffect, useRef, useState } from "react";
 import Navbar from "./Navbar";
 import TechIcons from "../assets/tech/techimages-export";
 import BulletList from "./BulletList";
-import { fakeTestimonials } from "../assets/Celebrities/celeb-export";
+import { fakeTestimonials } from "../assets/fake-reviews/review-export";
 import Testimony from "./Testimony";
 import { gsap } from "gsap";
+import { useNavigate } from "react-router-dom";
 
 const techSkills = [
   {
@@ -36,6 +37,7 @@ const techSkills = [
 const Home = () => {
   const [testimonyIndex, SetTestimonyIndex] = useState<number>(0);
   const testimonyRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
 
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
@@ -49,8 +51,7 @@ const Home = () => {
     return () => ctx.revert();
   }, [testimonyIndex]);
 
-  return (
-    <>
+  return ( 
       <main className="home-container">
         <div className="background" />
         <div className="svg-background">
@@ -169,7 +170,7 @@ const Home = () => {
                 <div className="hero-message">
                   <p>
                     Salut ! Je suis un développeur web, mais aussi un créatif et
-                    je profite de mes compétences en web pour vous proposer ce
+                    je profite de mes compétences pour vous proposer ce
                     portfolio écrit en React avec Typescript. 😊👍
                   </p>
                 </div>
@@ -205,11 +206,10 @@ const Home = () => {
         </div>
         <div className="showcase-btn">
           <h2>Allez vers la gallerie</h2>
-          <button>Suivant</button>
+          <button onClick={()=> navigate("/showcase")}>Suivant</button>
         </div>
         <Footer />
-      </main>
-    </>
+      </main> 
   );
 };
 
