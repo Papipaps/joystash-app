@@ -30,7 +30,7 @@ function UNIB() {
         <div className="img-wrapper">
           <img src={characters?.find(({ id }) => id === selected)?.img} />
         </div>
-        <CharactersGrid characters={characters} style={2} />
+        <CharactersGrid characters={characters}/>
       </div>
     </div>
   );
