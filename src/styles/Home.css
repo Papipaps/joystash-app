@@ -111,8 +111,8 @@ li {
 /* DESKTOP */
 @media (width >= 800px) {
   .about-wrapper {
-    margin-top: 250px;
-    margin-bottom: 100px;
+    margin: 190px 0 100px 0;
+    padding: 0 150px;
   }
   .hero-message {
     max-width: 500px;
@@ -179,6 +179,12 @@ li {
     padding: 10px 15px;
     background: var(--accent-color);
   }
+}
+
+@media (width <= 1150px) {
+ .about-wrapper{
+  padding: 0 50px 0 20px;
+ } 
 }
 
 /* MOBILE */

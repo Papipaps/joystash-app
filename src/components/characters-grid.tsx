@@ -67,13 +67,13 @@ function CharactersGrid(props: Props) {
   useLayoutEffect(() => {
     if (leftIcons && middleIcon && rightIcons && grid) {
       let ctx = gsap.context(() => {
-        for (let i = 0; i <= characters.length + 1; i++) {
+        for (let i = 0; i <= characters.length + 1; i++) { 
           gsap.fromTo(
             leftIcons.children[i],
             { left: -9999 },
             {
               scrollTrigger: {
-                trigger: grid,
+                trigger: grid, 
                 toggleActions: "restart none none none",
               },
               left: 0,
@@ -107,7 +107,7 @@ function CharactersGrid(props: Props) {
             ease: "power4.in",
           }
         );
-      }, comp);
+      }, comp); 
       return () => ctx.revert();
     }
   }, []);
