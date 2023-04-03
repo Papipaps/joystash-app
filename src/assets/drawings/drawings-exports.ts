@@ -1,24 +1,45 @@
+import leghz from "./(1).png"
+import creepyjojo from "./(2).png"
+import rose from "./(3).png"
+import kawafi from "./(4).png"
+import kata from "./(5).png"
+import mathou from "./(6).png"
+import beach from "./(7).png"
+import bunny from "./(8).png"
+import bee from "./(9).png"
+import couki from "./(10).png"
+import red from "./(11).png"
+import redsketch from "./(12).png"
+import disco from "./(13).png"
+import redyellow from "./(14).png"
+import running from "./(15).png"
+import bunnysat from "./(16).png"
+import baseball from "./(17).png"
+import axe from "./(18).png"
+import yara from "./(19).png"
+import greek from "./(20).png"
+import jojo  from "./(21).png"
 const Drawings = {
-    leghz: "src/assets/drawings/(1).png",
-    creepyjojo: "src/assets/drawings/(2).png",
-    rose: "src/assets/drawings/(3).png",
-    kawafi: "src/assets/drawings/(4).png",
-    kata: "src/assets/drawings/(5).png",
-    mathou: "src/assets/drawings/(6).png",
-    beach: "src/assets/drawings/(7).png",
-    bunny: "src/assets/drawings/(8).png",
-    bee: "src/assets/drawings/(9).png",
-    couki: "src/assets/drawings/(10).png",
-    red: "src/assets/drawings/(11).png",
-    redsketch: "src/assets/drawings/(12).png",
-    disco: "src/assets/drawings/(13).png",
-    redyellow: "src/assets/drawings/(14).png",
-    running: "src/assets/drawings/(15).png",
-    bunnysat: "src/assets/drawings/(16).png",
-    baseball: "src/assets/drawings/(17).png",
-    axe: "src/assets/drawings/(18).png",
-    yara: "src/assets/drawings/(19).png",
-    greek: "src/assets/drawings/(20).png",
-    jojo: "src/assets/drawings/(21).png"
+    leghz: leghz,
+    creepyjojo:creepyjojo,
+    rose:rose,
+    kawafi:kawafi,
+    kata:kata,
+    mathou:mathou,
+    beach:beach,
+    bunny:bunny,
+    bee:bee,
+    couki:couki,
+    red:red,
+    redsketch:redsketch,
+    disco:disco,
+    redyellow:redyellow,
+    running:running,
+    bunnysat:bunnysat,
+    baseball:baseball,
+    axe:axe,
+    yara:yara,
+    greek:greek,
+    jojo: jojo
 }
 export default Drawings

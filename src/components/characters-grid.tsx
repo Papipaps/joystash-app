@@ -38,24 +38,11 @@ function CharactersGrid(props: Props) {
   const middleIcon = middleIconRef.current;
   const rightIcons = rightIconsRef.current;
   const grid = gridRef.current;
-  const randomImg = middleIconRef.current;
+  const randomImg = randomIconRef.current;
 
   const half = Math.ceil(characters.length / 2);
   const firstHalf = characters.slice(0, half);
   const secondHalf = characters.slice(half);
-
-
-  useEffect(() => {
-    let interval: number;
-    if (isHovering) {
-      interval = setInterval(() => {
-        console.log(
-          "Function is being called repeatedly while hovering over the div!"
-        );
-      }, 1000); // Replace with desired interval in milliseconds
-    }
-    return () => clearInterval(interval);
-  }, [isHovering]);
 
   const handleHover = () => {
     setIsHovering(true);
@@ -64,6 +51,18 @@ function CharactersGrid(props: Props) {
   const handleMouseLeave = () => {
     setIsHovering(false);
   };
+
+  useEffect(() => {
+    let interval: number;
+    let index: number;
+    if (isHovering && randomImg) {
+      interval = setInterval(() => {
+        index = Math.floor(Math.random() * characters.length);
+        randomImg.src = characters[index].img;
+      }, 100);
+    }
+    return () => clearInterval(interval);
+  }, [isHovering]);
 
   useLayoutEffect(() => {
     if (leftIcons && middleIcon && rightIcons && grid) {
@@ -109,7 +108,6 @@ function CharactersGrid(props: Props) {
           }
         );
       }, comp);
-
       return () => ctx.revert();
     }
   }, []);
@@ -131,19 +129,14 @@ function CharactersGrid(props: Props) {
       </div>
       <div
         ref={middleIconRef}
-        // onMouseOver={()=>console.log("hello !")}
-        onMouseLeave={handleHover}
-        onMouseEnter={handleMouseLeave}
+        onMouseLeave={handleMouseLeave}
+        onMouseEnter={handleHover}
         onClick={() =>
-          setSelected(Math.ceil(Math.random() * characters.length))
+          setSelected(Math.floor(Math.random() * characters.length))
         }
         className="grid-middle"
       >
-        <img
-        ref={randomIconRef}
-          src={characters[Math.ceil(Math.random() * characters.length-1)].img}
-          alt=""
-        />
+        <img src={characters[0].img} ref={randomIconRef} />
       </div>
       <div ref={rightIconsRef} className="grid-right">
         {secondHalf.map(
