@@ -110,8 +110,12 @@ li {
 }
 /* DESKTOP */
 @media (width >= 800px) {
+  .about-wrapper {
+    margin-top: 250px;
+    margin-bottom: 100px;
+  }
   .hero-message {
-    font-size: 1.5rem;
+    max-width: 500px;
   }
   .home-container {
     margin-top: 50px;
@@ -146,14 +150,12 @@ li {
     padding: 0 60px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    align-items: center;
+    justify-content: center;
   }
 
   .hero-right {
     background-color: white;
-  }
-  .about-wrapper {
-    padding: 0;
   }
   .showcase-btn {
     text-transform: uppercase;
@@ -168,8 +170,8 @@ li {
   }
 
   .showcase-btn button {
-    border: none; 
-    box-shadow: 0 7px 10px 1px rgba(255, 196, 0,0.2);
+    border: none;
+    box-shadow: 0 7px 10px 1px rgba(255, 196, 0, 0.2);
     text-decoration: none;
     text-transform: uppercase;
     cursor: pointer;

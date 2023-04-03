@@ -10,10 +10,14 @@ body {
 }
 .app {
   width: 100vw;
-  /* --anek-font: "Anek Malayalam", sans-serif;
+  --anek-font: "Anek Malayalam", sans-serif;
   --new-cycle-font: "News Cycle", sans-serif;
-  --staat-font: "Staatliches", cursive; */
+  --staat-font: "Staatliches", cursive;
   --text-font: "Roboto", sans-serif;
   --title-font: "Rubik", sans-serif;
   --accent-color: rgb(255, 187, 0);
+  --accent-color-hex: #FFBB00; /* svg base color to replace #6c63ff */
+  --boxshadow-accent: 0 7px 10px 1px rgba(255, 187, 0,0.2);
+  --boxshadow-regular: 0 7px 10px 1px rgba(207, 207, 207, 0.4);
+
 }
