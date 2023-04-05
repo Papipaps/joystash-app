@@ -45,19 +45,17 @@ const softSkills: SkillType[] = [
   },
 ];
 function About() {
-  const [selected, setSelected] = useState<SkillType>();
-  const app = useRef()
+  const [selected, setSelected] = useState<SkillType>(softSkills[0]);
+  const app = useRef();
   const imagesRef = useRef<HTMLDivElement>(null);
   const leftRef = useRef<HTMLDivElement>(null);
-  const leftSide = leftRef.current;
-  const images = imagesRef.current;
 
   const slideFromRight = (elem: HTMLDivElement, index: number) => {
     gsap.from(elem.children[index], {
       scrollTrigger: {
         start: "20px 80%",
-        trigger: images,
-        toggleActions: "restart none none none",
+        trigger: imagesRef.current,
+        toggleActions: "play none none none",
       },
       left: "200%",
       delay: (index + 1) * 0.2,
@@ -72,8 +70,8 @@ function About() {
       },
       {
         scrollTrigger: {
-          trigger: images, 
-          toggleActions: "restart none none none",
+          trigger: imagesRef.current,
+          toggleActions: "play none none none",
         },
         x: "0",
         duration: 0.6,
@@ -81,17 +79,17 @@ function About() {
     );
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      if (images && leftSide) {
+      if (imagesRef.current && leftRef.current) {
         for (let i = 0; i < softSkills.length; i++) {
-          slideFromRight(images, i);
+          slideFromRight(imagesRef.current, i);
         }
-        slideFromLeft(leftSide);
+        slideFromLeft(leftRef.current);
       }
     }, app);
-    return ()=> ctx.revert();
-  }, []);
+    return () => ctx.revert();
+  }, [imagesRef, leftRef]);
 
   return (
     <section className="about-container">
@@ -119,9 +117,7 @@ function About() {
               <li
                 key={skill.id}
                 style={{
-                  textAlign: "center",
-                  marginBottom: "5px",
-                  border: `1px solid ${skill.color}`,
+                  border: `3px solid ${skill.color}`,
                   background: `${
                     selected?.id === skill.id ? selected.color : "white"
                   }`,

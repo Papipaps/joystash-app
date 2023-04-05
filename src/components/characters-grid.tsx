@@ -20,10 +20,14 @@ type Props = {
   characters: Character[];
 };
 
+function randomDuration(index: number) {
+  return Math.random() + 0.2 * (1.05 * index);
+}
+
 function CharactersGrid(props: Props) {
   gsap.registerPlugin(ScrollTrigger);
   const [isHovering, setIsHovering] = useState<boolean>();
-  const { setSelected } = useContext(SelectionContext);
+  const { selected, setSelected } = useContext(SelectionContext);
   const { characters } = props;
 
   const leftIconsRef = useRef<HTMLDivElement>(null);
@@ -33,12 +37,6 @@ function CharactersGrid(props: Props) {
   const gridRef = useRef<HTMLDivElement>(null);
 
   const comp = useRef();
-
-  const leftIcons = leftIconsRef.current;
-  const middleIcon = middleIconRef.current;
-  const rightIcons = rightIconsRef.current;
-  const grid = gridRef.current;
-  const randomImg = randomIconRef.current;
 
   const half = Math.ceil(characters.length / 2);
   const firstHalf = characters.slice(0, half);
@@ -52,62 +50,77 @@ function CharactersGrid(props: Props) {
     setIsHovering(false);
   };
 
+  function animateLeftAndRight() {
+    if (leftIconsRef.current && rightIconsRef.current) {
+      for (let i = 0; i <= characters.length + 1; i++) {
+        gsap.fromTo(
+          leftIconsRef?.current?.children[i],
+          { left: -9999 },
+          {
+            scrollTrigger: {
+              trigger: gridRef.current,
+              toggleActions: "restart none none none",
+            },
+            left: 0,
+            duration: randomDuration,
+          }
+        );
+        gsap.fromTo(
+          rightIconsRef?.current?.children[i],
+          { right: -9999 },
+          {
+            scrollTrigger: {
+              trigger: gridRef.current,
+              toggleActions: "restart none none none",
+            },
+            right: 0,
+            duration: randomDuration,
+          }
+        );
+      }
+    }
+  }
+
+  function animateMiddle() {
+    gsap.fromTo(
+      middleIconRef.current,
+      { bottom: -9999, opacity: 0 },
+      {
+        scrollTrigger: {
+          trigger: gridRef.current,
+          toggleActions: "restart none none none",
+        },
+        bottom: 0,
+        opacity: 1,
+        duration: 1,
+        ease: "power4.in",
+      }
+    );
+  }
+
   useEffect(() => {
     let interval: number;
     let index: number;
-    if (isHovering && randomImg) {
+    if (isHovering && randomIconRef.current) {
       interval = setInterval(() => {
         index = Math.floor(Math.random() * characters.length);
-        randomImg.src = characters[index].img;
+        randomIconRef.current?.setAttribute("src", characters[index].img);
       }, 100);
     }
     return () => clearInterval(interval);
   }, [isHovering]);
 
   useLayoutEffect(() => {
-    if (leftIcons && middleIcon && rightIcons && grid) {
+    if (
+      leftIconsRef.current &&
+      middleIconRef.current &&
+      rightIconsRef.current &&
+      gridRef.current
+    ) {
       let ctx = gsap.context(() => {
-        for (let i = 0; i <= characters.length + 1; i++) { 
-          gsap.fromTo(
-            leftIcons.children[i],
-            { left: -9999 },
-            {
-              scrollTrigger: {
-                trigger: grid, 
-                toggleActions: "restart none none none",
-              },
-              left: 0,
-              duration: Math.random() + 0.2 * (1.05 * i),
-            }
-          );
-          gsap.fromTo(
-            rightIcons.children[i],
-            { right: -9999 },
-            {
-              scrollTrigger: {
-                trigger: grid,
-                toggleActions: "restart none none none",
-              },
-              right: 0,
-              duration: Math.random() + 0.2 * (1.05 * i),
-            }
-          );
-        }
-        gsap.fromTo(
-          middleIcon,
-          { bottom: -9999, opacity: 0 },
-          {
-            scrollTrigger: {
-              trigger: grid,
-              toggleActions: "restart none none none",
-            },
-            bottom: 0,
-            opacity: 1,
-            duration: 1,
-            ease: "power4.in",
-          }
-        );
-      }, comp); 
+        animateLeftAndRight();
+        animateMiddle();
+      }, comp);
       return () => ctx.revert();
     }
   }, []);
@@ -132,7 +145,7 @@ function CharactersGrid(props: Props) {
         onMouseLeave={handleMouseLeave}
         onMouseEnter={handleHover}
         onClick={() =>
-          setSelected(Math.floor(Math.random() * characters.length))
+          setSelected(Math.ceil(Math.random() * characters.length))
         }
         className="grid-middle"
       >

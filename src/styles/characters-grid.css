@@ -43,10 +43,10 @@
   display: flex;
 }
 .grid-2 .grid-middle {
-  width: 75px;
+  width: 100px;
   height: 80%;
   background: gray;
-  filter: blur(2px) brightness(0.5);
+  filter: blur(2px) brightness(0.5) grayscale(1);
 }
 .grid-2 .grid-middle img {
   pointer-events: none;
@@ -55,7 +55,7 @@
   object-fit: cover;
 }
 .grid-2 .grid-middle:hover {
-  filter: brightness(1);
+  filter: brightness(1) grayscale(0);
   cursor: pointer;
 }
 .img-wrapper {  
