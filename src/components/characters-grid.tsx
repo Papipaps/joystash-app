@@ -21,7 +21,7 @@ type Props = {
 };
 
 function randomDuration(index: number) {
-  return Math.random() + 0.2 * (1.05 * index);
+  return Math.random() + 0.2 * index;
 }
 
 function CharactersGrid(props: Props) {
@@ -62,7 +62,7 @@ function CharactersGrid(props: Props) {
               toggleActions: "restart none none none",
             },
             left: 0,
-            duration: randomDuration,
+            duration: randomDuration(i),
           }
         );
         gsap.fromTo(
@@ -74,7 +74,7 @@ function CharactersGrid(props: Props) {
               toggleActions: "restart none none none",
             },
             right: 0,
-            duration: randomDuration,
+            duration: randomDuration(i),
           }
         );
       }
