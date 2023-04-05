@@ -14,15 +14,17 @@
     margin: 0;
   }
   .about-left h2 {
+    margin: 0 0 50px 0;
     font-size: 3rem;
   }
   .about-left p,
   .about-left li {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     background: white;
-    padding: 10px;
   }
   .about-left li {
+    padding: 10px;
+    width: 70%;
     border: 1px solid;
     border-radius: 20px;
   }

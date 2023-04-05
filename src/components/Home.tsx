@@ -100,9 +100,7 @@ const Home = () => {
       <div className="about-wrapper">
         <About />
       </div>
-      <div className="bullet-wrapper">
-        <BulletList items={techSkills} />
-      </div>
+      <BulletList items={techSkills} />
       <div className="showcase-btn">
         <h2>Allez vers la gallerie</h2>
         <button onClick={() => navigate("/showcase")}>Suivant</button>

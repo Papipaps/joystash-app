@@ -1,3 +1,10 @@
+.bullet-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 0 50px;
+  gap: 100px;
+  width: 100%;
+}
 .bullet-wrapper > * {
   font-family: var(--text-font);
   text-align: justify;
@@ -6,7 +13,6 @@
 
 .bullet-container {
   max-width: 450px;
-  display: block;
   border-radius: 10px;
   box-shadow: 0 7px 10px 1px lightgrey;
 }
@@ -38,36 +44,55 @@
   object-fit: contain;
 }
 
-.bullet .title {
+.bullet-title {
+  margin: 0 0 50px 0;
   font-family: var(--text-font);
+  font-size: 2.5rem;
   font-weight: 700;
+  text-align: center;
   text-transform: uppercase;
-  max-width: 50%;
-  margin-top: 55px;
 }
 
-.bullet .description {
-  height: 120px;
+.bullet-description {
+  margin: 0;
+  width: 450px;
+  overflow-y: scroll;
+  font-size: 1.5rem;
+}
+
+.bullet-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(100px, 1fr));
+  gap: 15px;
+  margin: 50px 15px 30px 15px;
+  padding: 15px;
   overflow-y: scroll;
 }
 
-.bullet-wrapper .item-list {
-  justify-content: flex-start;
-  list-style: none;
-  display: flex;
-  gap: 10px;
-  overflow-x: scroll;
-  margin: 0 15px;
-  padding: 15px;
-}
-
-.item-list li {
+.bullet-list li {
+  height: fit-content;
   background: white;
   cursor: pointer;
-  padding: 5px;
+  padding: 10px;
   border-radius: 10px;
   border: solid 1px lightgray;
 }
-.item-list li:hover {
+.bullet-list li:hover {
   filter: brightness(0.8);
+}
+
+.bullet-detail {
+  max-width: 500px;
+  min-width: 270px;
+}
+
+@media (800px <= width <= 1150px) {
+  .bullet-description,
+  .bullet-title {
+    font-size: 2vw;
+  }
+  .bullet-wrapper{
+    gap: 20px;
+  }
 }

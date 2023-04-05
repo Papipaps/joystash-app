@@ -1,9 +1,11 @@
-import { useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import "../styles/About.css";
 import Card from "./Card";
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { undrawSVG } from "../assets/drawings/svg-exports";
+
+gsap.registerPlugin(ScrollTrigger);
 
 type SkillType = {
   id: number;
@@ -44,44 +46,51 @@ const softSkills: SkillType[] = [
 ];
 function About() {
   const [selected, setSelected] = useState<SkillType>();
+  const app = useRef()
   const imagesRef = useRef<HTMLDivElement>(null);
   const leftRef = useRef<HTMLDivElement>(null);
-  const left = leftRef.current;
+  const leftSide = leftRef.current;
   const images = imagesRef.current;
-  gsap.registerPlugin(ScrollTrigger);
-  const comp = useRef();
 
-  useLayoutEffect(() => {
-    if (images && left) {
-      let ctx = gsap.context(() => {
+  const slideFromRight = (elem: HTMLDivElement, index: number) => {
+    gsap.from(elem.children[index], {
+      scrollTrigger: {
+        start: "20px 80%",
+        trigger: images,
+        toggleActions: "restart none none none",
+      },
+      left: "200%",
+      delay: (index + 1) * 0.2,
+      duration: 1,
+    });
+  };
+  const slideFromLeft = (elem: HTMLDivElement) => {
+    gsap.fromTo(
+      elem,
+      {
+        x: "-200%",
+      },
+      {
+        scrollTrigger: {
+          trigger: images, 
+          toggleActions: "restart none none none",
+        },
+        x: "0",
+        duration: 0.6,
+      }
+    );
+  };
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      if (images && leftSide) {
         for (let i = 0; i < softSkills.length; i++) {
-          gsap.from(images.children[i], {
-            scrollTrigger: {
-              start: "20px 80%",
-              trigger: images,
-              toggleActions: "restart none none none",
-            },
-            left: "200%",
-            duration: Math.random() + 0.4 * (1.05 * i === 0 ? 1 : i),
-          });
-          gsap.fromTo(
-            left,
-            {
-              x: "-200%",
-            },
-            {
-              scrollTrigger: {
-                trigger: images,
-                toggleActions: "restart none none none",
-              },
-              x: "0",
-              duration: 0.6,
-            }
-          );
+          slideFromRight(images, i);
         }
-      }, comp);
-      return () => ctx.revert();
-    }
+        slideFromLeft(leftSide);
+      }
+    }, app);
+    return ()=> ctx.revert();
   }, []);
 
   return (
