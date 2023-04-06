@@ -3,7 +3,7 @@ import Fighters from "../assets/characters/fighter-exports";
 import CharactersGrid, { Character } from "./characters-grid";
 import { SelectionContext } from "./selection-provider";
 import "../styles/UNIB.css";
-import audio from "../assets/audio/FunkyOne.mp3"
+import audio from "../assets/audio/FunkyOne.mp3";
 
 const characters = [
   { id: 1, name: "Huh-Long", img: Fighters.fighter1 },
@@ -76,13 +76,13 @@ function UNIB() {
               position: "absolute",
               bottom: "0",
               textAlign: "center",
-              fontSize: "3.5rem",
+              fontSize: "3rem",
               background: "rgba(0,0,0,0.7)",
             }}
           >
             {character?.name}
           </p>
-          <img style={{ width: "500px" }} src={character?.img} />
+          <img style={{ width: "350px" }} src={character?.img} />
         </div>
         <CharactersGrid characters={characters} />
       </div>
