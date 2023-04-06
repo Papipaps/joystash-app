@@ -94,7 +94,7 @@ function About() {
   return (
     <section className="about-container">
       <div ref={leftRef} className="about-left">
-        <h2>Mes qualités</h2>
+        <h2>MES QUALITÉS</h2>
         <p>
           Parce qu’un dev n’est pas seulement un mangeur de code, mais aussi un
           humain. <br />

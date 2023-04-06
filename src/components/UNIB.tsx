@@ -33,7 +33,7 @@ function UNIB() {
   );
   return (
     <div>
-      <h1> Under Night In-Birth character select</h1>
+      <h1>Sélection de personnage</h1>
       <div
         style={{
           display: "flex",
