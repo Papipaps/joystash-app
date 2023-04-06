@@ -3,6 +3,7 @@ import Fighters from "../assets/characters/fighter-exports";
 import CharactersGrid, { Character } from "./characters-grid";
 import { SelectionContext } from "./selection-provider";
 import "../styles/UNIB.css";
+import audio from "../assets/audio/FunkyOne.mp3"
 
 const characters = [
   { id: 1, name: "Huh-Long", img: Fighters.fighter1 },
@@ -48,7 +49,7 @@ function UNIB() {
     <main className="selection-background">
       <audio
         style={{ position: "fixed" }}
-        src="src/assets/audio/FunkyOne.mp3"
+        src={audio}
         ref={audioRef}
         controls
       ></audio>
