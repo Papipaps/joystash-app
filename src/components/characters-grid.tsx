@@ -27,6 +27,8 @@ function randomDuration(index: number) {
 function CharactersGrid(props: Props) {
   gsap.registerPlugin(ScrollTrigger);
   const [isHovering, setIsHovering] = useState<boolean>();
+  const [audio, setAudio] = useState<HTMLAudioElement>();
+  const [selectedAudio, setSelectedAudio] = useState<HTMLAudioElement>();
   const { selected, setSelected } = useContext(SelectionContext);
   const { characters } = props;
 
@@ -48,6 +50,14 @@ function CharactersGrid(props: Props) {
 
   const handleMouseLeave = () => {
     setIsHovering(false);
+  };
+
+  const handleSelection = (character: Character) => {
+    setSelected(character.id);
+    selectedAudio?.play();
+  };
+  const handleCharacterHover = () => {
+    audio?.play();
   };
 
   function animateLeftAndRight() {
@@ -99,6 +109,14 @@ function CharactersGrid(props: Props) {
   }
 
   useEffect(() => {
+    const hoverSound = new Audio("src/assets/audio/select(1).wav");
+    const selectSound = new Audio("src/assets/audio/select(2).wav");
+    hoverSound.volume = 0.3;
+    setSelectedAudio(selectSound);
+    setAudio(hoverSound);
+  }, []);
+
+  useEffect(() => {
     let interval: number;
     let index: number;
     if (isHovering && randomIconRef.current) {
@@ -125,48 +143,48 @@ function CharactersGrid(props: Props) {
     }
   }, []);
 
-  return (
-    <div ref={gridRef} className="grid-2">
-      <div ref={leftIconsRef} className="grid-left">
-        {firstHalf.map(
-          (character) =>
-            character && (
-              <div
-                onClick={() => setSelected(character.id)}
-                className="grid-icon"
-              >
-                <img src={character.img} />
-              </div>
-            )
-        )}
-      </div>
-      <div
-        ref={middleIconRef}
-        onMouseLeave={handleMouseLeave}
-        onMouseEnter={handleHover}
-        onClick={() =>
-          setSelected(Math.ceil(Math.random() * characters.length))
-        }
-        className="grid-middle"
-      >
-        <img src={characters[0].img} ref={randomIconRef} />
-      </div>
-      <div ref={rightIconsRef} className="grid-right">
-        {secondHalf.map(
-          (character) =>
-            character && (
-              <div
-                onClick={() => {
-                  setSelected(character.id);
-                }}
-                className="grid-icon"
-              >
-                <img src={character.img} />
-              </div>
-            )
-        )}
-      </div>
-    </div>
+  return ( 
+      <div ref={gridRef} className="grid-2">
+        <div ref={leftIconsRef} className="grid-left">
+          {firstHalf.map(
+            (character) =>
+              character && (
+                <div
+                  onMouseEnter={handleCharacterHover}
+                  onClick={() => handleSelection(character)}
+                  className="grid-icon"
+                >
+                  <img src={character.img} />
+                </div>
+              )
+          )}
+        </div>
+        <div
+          ref={middleIconRef}
+          onMouseLeave={handleMouseLeave}
+          onMouseEnter={handleHover}
+          onClick={() =>
+            setSelected(Math.ceil(Math.random() * characters.length))
+          }
+          className="grid-middle"
+        >
+          <img src={characters[0].img} ref={randomIconRef} />
+        </div>
+        <div ref={rightIconsRef} className="grid-right">
+          {secondHalf.map(
+            (character) =>
+              character && (
+                <div
+                  onMouseEnter={handleCharacterHover}
+                  onClick={() => handleSelection(character)}
+                  className="grid-icon"
+                >
+                  <img src={character.img} />
+                </div>
+              )
+          )}
+        </div>
+      </div> 
   );
 }
 
