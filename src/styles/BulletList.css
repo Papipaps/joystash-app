@@ -55,8 +55,7 @@
 
 .bullet-description {
   margin: 0;
-  width: 450px;
-  overflow-y: scroll;
+  width: 450px; 
   font-size: 1.5rem;
 }
 
@@ -66,8 +65,7 @@
   grid-template-columns: repeat(3, minmax(100px, 1fr));
   gap: 15px;
   margin: 50px 15px 30px 15px;
-  padding: 15px;
-  overflow-y: scroll;
+  padding: 15px; 
 }
 
 .bullet-list li {
