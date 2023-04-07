@@ -1,25 +1,30 @@
 .testimony-container > * {
   text-align: center; 
  }
-.testimony-container {
-  margin: 20px; 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+
+ .svg-background {
+  position: absolute;
+  top: 42px;
+  left:60%; 
+  z-index: -10;
 }
-.testimony-message::after,
-.testimony-message::before
-{
-  content: '"';
+ .testimony-container {
+   margin: 20px; 
+   display: flex;
+   flex-direction: column;
+   align-items: center; 
+  }
+  .testimony-message::after,
+  .testimony-message::before
+  {
+    content: '"';
 }
 .testimony-message {
-  background: white;
   font-style: italic;
   opacity: 0.7;
-    margin-bottom: 10px; 
-max-width: 750px;
-font-size: x-large;
-height: 120px;
+  margin-bottom: 10px; 
+  max-width: 750px;
+  font-size: x-large; 
 }
 .testimony-celebrity {
   margin-top: 20px;
@@ -35,7 +40,7 @@ height: 120px;
 }
 
 @media (width < 800px){
-    .testimony-container {
-         height: 150px;
-       }
+  .svg-background {
+    display: none;
+  } 
 }

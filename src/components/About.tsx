@@ -49,12 +49,13 @@ function About() {
   const app = useRef();
   const imagesRef = useRef<HTMLDivElement>(null);
   const leftRef = useRef<HTMLDivElement>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
 
   const slideFromRight = (elem: HTMLDivElement, index: number) => {
     gsap.from(elem.children[index], {
       scrollTrigger: {
         start: "20px 80%",
-        trigger: imagesRef.current,
+        trigger: leftRef.current,
         toggleActions: "play none none none",
       },
       left: "200%",
@@ -70,7 +71,7 @@ function About() {
       },
       {
         scrollTrigger: {
-          trigger: imagesRef.current,
+          trigger: leftRef.current,
           toggleActions: "play none none none",
         },
         x: "0",
@@ -81,9 +82,10 @@ function About() {
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      if (imagesRef.current && leftRef.current) {
+      if (imagesRef.current && leftRef.current && cardRef.current) {
         for (let i = 0; i < softSkills.length; i++) {
           slideFromRight(imagesRef.current, i);
+          slideFromRight(cardRef.current, i);
         }
         slideFromLeft(leftRef.current);
       }
@@ -166,7 +168,7 @@ function About() {
           {undrawSVG.team}
         </div>
       </div>
-      <div className="cards-wrapper">
+      <div ref={cardRef} className="cards-wrapper">
         {softSkills.map((skill) => (
           <Card title={skill.name} description={skill.description} />
         ))}

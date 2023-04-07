@@ -6,7 +6,7 @@
   background: white;
 }
 
-@media (width <800px){
+@media (width < 800px){
   .card{
     max-width: 450px;
     margin-bottom: 20px;

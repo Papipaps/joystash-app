@@ -59,7 +59,6 @@ const Home = () => {
   return (
     <main className="home-container">
       <div className="background" />
-      <div className="svg-background">{undrawSVG.join}</div>
       <header>
         <Navbar />
         <div className="container">
@@ -83,10 +82,7 @@ const Home = () => {
         </div>
       </header>
       <div className="testimony-wrapper">
-        <div ref={testimonyRef}>
-          <Testimony testimony={fakeTestimonials[testimonyIndex]} />
-        </div>
-        <div className="testimony-selector-wrapper">
+      <div className="testimony-selector-wrapper">
           {fakeTestimonials.map((e, index) => (
             <div
               className={`testimony-selector ${
@@ -95,6 +91,9 @@ const Home = () => {
               onClick={() => SetTestimonyIndex(index)}
             />
           ))}
+        </div>
+        <div ref={testimonyRef}>
+          <Testimony testimony={fakeTestimonials[testimonyIndex]} />
         </div>
       </div>
       <div className="about-wrapper">

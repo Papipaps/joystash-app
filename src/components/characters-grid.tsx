@@ -9,7 +9,7 @@ import {
 } from "react";
 import "../styles/characters-grid.css";
 import { SelectionContext } from "./selection-provider";
-import select1 from "../assets/audio/select(1).wav";
+import select1 from "../assets/audio/select(2).wav";
 import select2 from "../assets/audio/select(1).wav";
 
 export type Character = {

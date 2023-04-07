@@ -62,8 +62,6 @@ function Showcase() {
           delay: 1,
           x: "-1000%",
         });
-        // gsap.from(textRef.current, { opacity: 0, delay: 0.45 });
-        // gsap.from(textRef2.current, { opacity: 0, delay: 0.45 });
         gsap.to(wrapperRef.current, {
           opacity: 0,
           duration: 1,
@@ -103,7 +101,7 @@ function Showcase() {
         <main className="showcase-container">
           <Navbar />
           <h1>Selectionnez un composant</h1>
-          <p>Le <i>Showcase</i> me sert d'expérimentation, c'est ici que je mets les tests. J'en rajouterai au fur et à mesure. </p>
+          <p>Le <span>Showcase</span> me sert d'expérimentation, c'est ici que je mets les tests. J'en rajouterai au fur et à mesure. </p>
           <div className="buttons">
             {components.map((component) => (
               <button
