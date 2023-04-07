@@ -13,7 +13,7 @@ function Testimony({ testimony }: Props) {
       <div className="svg-background">{undrawSVG.join}</div>
       <div className="testimony-message">{message}</div>
       <div className="testimony-celebrity">
-        {celebrity}
+        {celebrity}{" - "}
         <span className="testimony-job">{job}</span>
       </div>
     </div>

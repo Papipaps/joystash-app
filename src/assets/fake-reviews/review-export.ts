@@ -50,6 +50,6 @@ export const fakeTestimonials: TestimonyType[] = [
     celebrity: "Marissa Mayflyer",
     job: "CEO de Wahoo",
     message:
-      "Il a tranformé nos yaou.. en Woaaauuh, il a vraiment aidé Yah- heuu.. Wahoo, à se réinventer !",
+      "Il a transformé nos yaou.. en Woaaauuh, il a vraiment aidé Yah- heuu.. Wahoo, à se réinventer !",
   },
 ];
