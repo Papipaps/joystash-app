@@ -7,10 +7,10 @@ import {
   useEffect,
   useState,
 } from "react";
-import "../styles/characters-grid.css";
-import { SelectionContext } from "./selection-provider";
-import select1 from "../assets/audio/select(2).wav";
-import select2 from "../assets/audio/select(1).wav";
+import "../../components/organisms/CharactersGrid";
+import { SelectionContext } from "../selection-provider";
+import select1 from "../../assets/audio/select(2).wav";
+import select2 from "../../assets/audio/select(1).wav";
 
 export type Character = {
   id: number;
@@ -27,7 +27,6 @@ function randomDuration(index: number) {
 }
 
 function CharactersGrid(props: Props) {
-  gsap.registerPlugin(ScrollTrigger);
   const [isHovering, setIsHovering] = useState<boolean>();
   const [audio, setAudio] = useState<HTMLAudioElement>();
   const [selectedAudio, setSelectedAudio] = useState<HTMLAudioElement>();

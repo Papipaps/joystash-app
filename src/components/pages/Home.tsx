@@ -1,43 +1,21 @@
-import "../styles/Home.css";
-import Carousel from "./Carrousel";
-import Drawings from "../assets/drawings/drawings-exports";
-import About from "./About";
-import Footer from "./Footer";
+import "../../styles/Home.css";
+import Carousel from "../molecules/Carrousel";
+import Drawings from "../../assets/drawings/drawings-exports";
+import About from "../molecules/About";
+import Footer from "../organisms/Footer";
 import { useLayoutEffect, useRef, useState } from "react";
-import Navbar from "./Navbar";
-import TechIcons from "../assets/tech/techimages-export";
-import BulletList from "./BulletList";
-import { fakeTestimonials } from "../assets/fake-reviews/review-export";
-import Testimony from "./Testimony";
+import Navbar from "../organisms/Navigation/Navbar";
+import BulletList from "../molecules/BulletList";
+import { fakeTestimonials } from "../../assets/fake-reviews/review-export";
+import Testimony from "../molecules/Testimony";
 import { gsap } from "gsap";
 import { useNavigate } from "react-router-dom";
-import { undrawSVG } from "../assets/drawings/svg-exports";
-{
-  /* <TODO>
+import { undrawSVG } from "../../assets/drawings/svg-exports";
+import { techSkills } from "../../assets/tech/tech";
+
+/* <TODO>
 responsive de la section ABOUT, le design du choix des qualités
 </TODO> */
-}
-const techSkills = [
-  {
-    name: "Java",
-    imageUrl: TechIcons.java,
-    description:
-      "Mon langage de coeur, la majorité de mes projets sont fait en Java et mon but est de maitriser ce langage qui est robuste et très polivalent",
-  },
-  { name: "Springboot", imageUrl: TechIcons.spring, description: "" },
-  { name: "React", imageUrl: TechIcons.react, description: "" },
-  { name: "Typescript", imageUrl: TechIcons.ts, description: "" },
-  { name: "Docker", imageUrl: TechIcons.docker, description: "" },
-  { name: "Jenkins", imageUrl: TechIcons.jenkins, description: "" },
-  { name: "Mongodb", imageUrl: TechIcons.mongodb, description: "" },
-  {
-    name: "Elasticsearch",
-    imageUrl: TechIcons.elasticsearch,
-    description: "",
-  },
-  { name: "Postgresql", imageUrl: TechIcons.pgsql, description: "" },
-  { name: "Neo4j", imageUrl: TechIcons.neo4j, description: "" },
-];
 
 const Home = () => {
   const [testimonyIndex, SetTestimonyIndex] = useState<number>(0);
@@ -82,7 +60,7 @@ const Home = () => {
         </div>
       </header>
       <div className="testimony-wrapper">
-      <div className="testimony-selector-wrapper">
+        <div className="testimony-selector-wrapper">
           {fakeTestimonials.map((e, index) => (
             <div
               className={`testimony-selector ${

@@ -1,8 +1,24 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto&family=Rubik:ital,wght@0,400;0,500;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 body {
   padding: 0;
   margin: 0;
   overflow-x: hidden;
+  color: var(--text-color-primary);
+}
+h1,
+h2,
+h3 {
+  font-family: var(--title-font);
+}
+p,
+li,
+span {
+  font-family: var(--text-font);
+  font-weight: 400;
+  /* color: var(--text-color-primary); */
+}
+i {
+  font-family: var(--info-font);
 }
 *,
 * > * {
@@ -10,14 +26,16 @@ body {
 }
 .app {
   width: 100vw;
-  --anek-font: "Anek Malayalam", sans-serif;
-  --new-cycle-font: "News Cycle", sans-serif;
-  --staat-font: "Staatliches", cursive;
-  --text-font: "Roboto", sans-serif;
-  --title-font: "Rubik", sans-serif;
+  --text-color-primary:#333;
+  --text-color-secondary:#666;
+  --info-font: "Montserrat", sans-serif;
+  --text-font: "Open Sans", sans-serif;
+  --title-font: "Roboto", sans-serif;
   --accent-color: rgb(255, 187, 0);
-  --accent-color-hex: #FFBB00; /* svg base color to replace #6c63ff */
-  --boxshadow-accent: 0 7px 10px 1px rgba(255, 187, 0,0.2);
+  --accent-color-hex: #ffbb00;
+  --background: #eee;
+  --component-background: #f1f1f1;
+  --boxshadow-accent: 0 7px 10px 1px rgba(255, 187, 0, 0.2);
   --boxshadow-regular: 0 7px 10px 1px rgba(207, 207, 207, 0.4);
-
+  --border-radius-s: 5px;
 }

@@ -1,10 +1,10 @@
-import { SelectionProvider } from "./selection-provider";
+import { SelectionProvider } from "../selection-provider";
 import UNIB from "./UNIB";
-import "../styles/Showcase.css";
+import '../../styles/Showcase.css'
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import Button from "@mui/material/Button";
 import { gsap } from "gsap";
-import Navbar from "./Navbar";
+import Navbar from "../organisms/Navigation/Navbar";
 
 type ComponentType = {
   name: string;

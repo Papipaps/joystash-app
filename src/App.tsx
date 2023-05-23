@@ -1,10 +1,10 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import About from "./components/About";
-import Contact from "./components/Contact";
-import ErrorPage from "./components/ErrorPage";
-import Home from "./components/Home";
-import Navbar from "./components/Navbar";
-import Showcase from "./components/Showcase";
+import About from "./components/molecules/About";
+import Contact from "./components/pages/Contact";
+import ErrorPage from "./components/pages/ErrorPage";
+import Home from "./components/pages/Home";
+import Navbar from "./components/organisms/Navigation/Navbar";
+import Showcase from "./components/pages/Showcase";
 
 function App() {
   return (

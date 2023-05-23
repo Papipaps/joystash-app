@@ -1,6 +1,6 @@
-import { undrawSVG } from "../assets/drawings/svg-exports";
-import { TestimonyType } from "../assets/fake-reviews/review-export";
-import "../styles/Testimony.css";
+import { undrawSVG } from "../../assets/drawings/svg-exports";
+import { TestimonyType } from "../../assets/fake-reviews/review-export";
+import "../../styles/Testimony.css";
 
 type Props = {
   testimony: TestimonyType;

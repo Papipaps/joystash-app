@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../styles/BulletList.css";
+import "../../styles/BulletList.css";
 
 type Props = {
   items: BulletItem[];
