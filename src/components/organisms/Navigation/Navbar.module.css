@@ -38,7 +38,11 @@
   list-style: none;
   gap: 50px;
 }
-
+@media (width <800px) {
+  .titleWrapper {
+    display: none;
+  }
+}
 .titleWrapper {
   z-index: 11;
   background: white;

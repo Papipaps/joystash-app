@@ -1,26 +1,19 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import styles from "./Navbar.module.css";
 
-import { useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 
 function Navbar() {
   const wrapperRef = useRef<HTMLUListElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
-  
+
   useLayoutEffect(() => {
-    first
-  
-    return () => {
-      second
-    };
-  }, [third])
-  function handleMouseHover(e:MouseEvent){
-    
-  }
+    return () => {};
+  }, []);
+  // function handleMouseHover(e: MouseEvent) {}
 
   function Tabs() {
     const location = useLocation();
-    console.log(location.pathname);
     return (
       <ul className={styles.tabs}>
         <li className={`${location.pathname === "/" && styles.active}`}>
@@ -37,11 +30,9 @@ function Navbar() {
   }
 
   return (
-    <nav onMouseEnter={handleMouseHover} className={styles.wrapper}>
+    <nav className={styles.wrapper}>
       <div ref={titleRef} className={styles.titleWrapper}>
-        <h3  className={styles.title}>
-          PAPIPAPS
-        </h3>
+        <h3 className={styles.title}>PAPIPAPS</h3>
       </div>
       <Tabs />
     </nav>
