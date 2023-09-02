@@ -1,30 +1,32 @@
 .testimony-container > * {
-  text-align: center; 
- }
+  text-align: center;
+}
 
- .svg-background {
+.svg-background {
   position: absolute;
-  top: 42px;
-  left:60%; 
+  top: 35%;
+  left: 64%;
   z-index: -10;
 }
- .testimony-container {
-   margin: 20px; 
-   display: flex;
-   flex-direction: column;
-   align-items: center; 
-  }
-  .testimony-message::after,
-  .testimony-message::before
-  {
-    content: '"';
+.testimony-container {
+  position: relative;
+  height: 150px;
+  max-width: 1000px;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.testimony-message::after,
+.testimony-message::before {
+  content: '"';
 }
 .testimony-message {
   font-style: italic;
   opacity: 0.7;
-  margin-bottom: 10px; 
+  margin-bottom: 10px;
   max-width: 750px;
-  font-size: x-large; 
+  font-size: x-large;
 }
 .testimony-celebrity {
   margin-top: 20px;
@@ -35,12 +37,12 @@
 .testimony-job {
   font-weight: 300;
 }
-.selector-active{
+.selector-active {
   background: var(--accent-color);
 }
 
-@media (width < 800px){
+@media (width < 800px) {
   .svg-background {
     display: none;
-  } 
+  }
 }

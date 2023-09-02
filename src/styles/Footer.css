@@ -7,7 +7,7 @@
 
 .icon {
   cursor: pointer;
-  scale: 1.3;
+  scale: 2;
 }
 
 .footer-container {
@@ -16,6 +16,16 @@
   align-items: center;
 }
 
-footer{
-    margin-top: 70px;
+footer {
+  margin: 34px 0;
+}
+
+@media (width <= 800px) {
+  .icons-list {
+    align-items: center;
+    flex-direction: column;
+    gap: 50px;
+    height: 100%;
+    justify-content: space-between;
+  }
 }

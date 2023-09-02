@@ -59,7 +59,9 @@ function CharactersGrid(props: Props) {
     selectedAudio?.play();
   };
   const handleCharacterHover = () => {
-    audio?.play();
+    const audio = new Audio(select1)
+    audio.volume = 0.3
+    audio.play();
   };
 
   function animateLeftAndRight() {
@@ -108,15 +110,7 @@ function CharactersGrid(props: Props) {
         ease: "power4.in",
       }
     );
-  }
-
-  useEffect(() => {
-    const hoverSound = new Audio(select1);
-    const selectSound = new Audio(select2);
-    hoverSound.volume = 0.3;
-    setSelectedAudio(selectSound);
-    setAudio(hoverSound);
-  }, []);
+  } 
 
   useEffect(() => {
     let interval: number;

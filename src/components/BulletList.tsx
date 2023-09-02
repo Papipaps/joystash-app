@@ -15,7 +15,13 @@ const BulletPoint: React.FC<Props> = ({ items }) => {
   const [selected, setSelected] = useState<BulletItem>(items[0]);
 
   return (
-    <section className="bullet-wrapper">
+    <section className="bullet-wrapper hero">
+      <div className="bullet-detail">
+        <h2 className="bullet-title">{selected.name}</h2>
+        <p className="bullet-description">
+          {selected.description || "Ah.. J'ai rien à dire dessus apparemment."}
+        </p>
+      </div>
       <div className="bullet-container">
         <div className="bullet">
           <div className="bullet-image">
@@ -31,12 +37,6 @@ const BulletPoint: React.FC<Props> = ({ items }) => {
             <li onClick={() => setSelected(item)}>{item.name}</li>
           ))}
         </ul>
-      </div>
-      <div className="bullet-detail">
-        <h2 className="bullet-title">{selected.name}</h2>
-        <p className="bullet-description">
-          {selected.description || "Ah.. J'ai rien à dire dessus apparemment."}
-        </p>
       </div>
     </section>
   );

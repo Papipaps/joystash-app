@@ -1,16 +1,24 @@
+p{
+  text-align: center;
+}
 .bullet-wrapper {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   padding: 0 50px;
-  gap: 100px;
+  gap: 50px;
   width: 100%;
-  margin-top: 55px;
+  margin: 34px 0;
+  padding: 24px;
 }
 
 .bullet-container {
-  max-width: 450px;
+  max-width: 800px;
+  width: 100%;
   border-radius: 10px;
   box-shadow: 0 7px 10px 1px lightgrey;
+  background: white;
 }
 
 .bullet {
@@ -41,7 +49,7 @@
 }
 
 .bullet-title {
-  margin: 0 0 50px 0;
+  margin: 20px;
   font-family: var(--text-font);
   font-size: 2.5rem;
   font-weight: 700;
@@ -51,8 +59,7 @@
 
 .bullet-description {
   margin: 0;
-  max-width: 450px;
-  font-size: 1.5rem;
+  max-width: 450px; &
   text-align: left;
 }
 
@@ -60,13 +67,14 @@
   width: 100%;
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(3, minmax(100px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   gap: 15px;
   margin-top: 50px;
   padding: 15px;
 }
 
-.bullet-list li {
+.bullet-list li { 
+  text-align: center;
   height: fit-content;
   background: white;
   cursor: pointer;
@@ -80,7 +88,8 @@
 
 .bullet-detail {
   max-width: 500px;
-  min-width: 270px;
+  min-width: 270px; 
+  height: 150px;
 }
 
 @media (width < 800px) {
@@ -89,7 +98,7 @@
     align-items: center;
   }
   .bullet-detail{
-    margin-bottom: 100px;
+    /* margin-bottom: 100px; */
   }
   .bullet-title {
     font-size: 2rem;

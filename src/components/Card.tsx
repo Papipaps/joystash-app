@@ -1,3 +1,4 @@
+import Box from "@mui/material/Box";
 import "../styles/Card.css"
 
 type CardProps = {
@@ -7,10 +8,10 @@ type CardProps = {
 
 function Card({ title, description }: CardProps) {
   return (
-    <div className="card">
+    <Box sx={{boxShadow: 1, borderRadius:'15px'}} className="card">
       <h2 className="card-title">{title}</h2>
       <p className="card-description">{description}</p>
-    </div>
+    </Box>
   );
 }
 

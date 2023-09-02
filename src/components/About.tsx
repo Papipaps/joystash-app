@@ -99,7 +99,9 @@ function About() {
         <h2>MES QUALITÉS</h2>
         <p>
           Parce qu’un dev n’est pas seulement un mangeur de code, mais aussi un
-          humain. <br />
+          humain.
+          <br />
+          <br />
           Voici mes qualités :
         </p>
         <ol>
@@ -119,7 +121,7 @@ function About() {
               <li
                 key={skill.id}
                 style={{
-                  border: `3px solid ${skill.color}`,
+                  border: `1px solid ${skill.color}`,
                   background: `${
                     selected?.id === skill.id ? selected.color : "white"
                   }`,
@@ -131,7 +133,7 @@ function About() {
             ))}
         </ol>
         <span>
-          {selected && selected?.name + " : " + selected?.description}
+          <strong>{selected && selected?.description}</strong>
         </span>
       </div>
       <div ref={imagesRef} className="about-images">

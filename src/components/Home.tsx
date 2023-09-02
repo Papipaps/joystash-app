@@ -12,6 +12,7 @@ import Testimony from "./Testimony";
 import { gsap } from "gsap";
 import { useNavigate } from "react-router-dom";
 import { undrawSVG } from "../assets/drawings/svg-exports";
+import { Divider } from "@mui/material";
 {
   /* <TODO>
 responsive de la section ABOUT, le design du choix des qualités
@@ -40,21 +41,7 @@ const techSkills = [
 ];
 
 const Home = () => {
-  const [testimonyIndex, SetTestimonyIndex] = useState<number>(0);
-  const testimonyRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
-
-  useLayoutEffect(() => {
-    let ctx = gsap.context(() => {
-      gsap.fromTo(
-        testimonyRef.current,
-        { opacity: 0 },
-        { opacity: 1, duration: 2 }
-      );
-    });
-
-    return () => ctx.revert();
-  }, [testimonyIndex]);
 
   return (
     <main className="home-container">
@@ -65,35 +52,32 @@ const Home = () => {
           <div className="hero">
             <div className="hero-left">
               <div className="hero-message">
-                <h1>Salut à tous ! 👋</h1>
+                <h1>Salut à tous !</h1>
                 <p>
                   Je suis un développeur web, mais aussi un créatif et je
                   profite de mes compétences pour vous proposer ce portfolio
-                  écrit en React avec Typescript. 😊👍
+                  écrit en React avec Typescript.
                 </p>
               </div>
             </div>
             <div className="hero-right">
               <Carousel
-                images={[Drawings.jojo, Drawings.running, Drawings.baseball]}
+                images={[
+                  "/(3).png",
+                  "/(8).png",
+                  "/(9).png",
+                  "/(10).png",
+                  "/(18).png",
+                  "/(21).png",
+                ]}
               />
             </div>
           </div>
         </div>
       </header>
       <div className="testimony-wrapper">
-      <div className="testimony-selector-wrapper">
-          {fakeTestimonials.map((e, index) => (
-            <div
-              className={`testimony-selector ${
-                testimonyIndex === index && "selector-active"
-              }`}
-              onClick={() => SetTestimonyIndex(index)}
-            />
-          ))}
-        </div>
-        <div ref={testimonyRef}>
-          <Testimony testimony={fakeTestimonials[testimonyIndex]} />
+        <div>
+          <Testimony />
         </div>
       </div>
       <div className="about-wrapper">
@@ -104,6 +88,8 @@ const Home = () => {
         <h2>Allez vers la gallerie</h2>
         <button onClick={() => navigate("/showcase")}>Suivant</button>
       </div>
+
+      <Divider />
       <Footer />
     </main>
   );

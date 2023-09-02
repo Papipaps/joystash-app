@@ -2,10 +2,22 @@ import { Link } from "react-router-dom";
 import "../styles/Navbar.css";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useEffect, useRef, useState } from "react";
+import { Button, Menu, MenuItem } from "@mui/material";
+
 
 function Navbar() {
   const [opened, setOpened] = useState<boolean>(false);
   const wrapperRef = useRef(null);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
+
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   function toggleMenu() {
     setOpened((prevState) => !prevState);
@@ -14,33 +26,31 @@ function Navbar() {
   return (
     <nav>
       <div className="menu-wrapper">
-        <h3 onClick={toggleMenu} className="burger-menu">
+        <Button onClick={handleClick} className="burger-menu">
+          <MenuIcon/>
           PAPIPAPS
-        </h3>
-        <ul className="mobile-menu">
-          <li>
+        </Button> 
+        <Menu
+          id="basic-menu"
+          anchorEl={anchorEl}
+          open={open}
+          onClose={handleClose}
+          MenuListProps={{
+            "aria-labelledby": "basic-button",
+          }}
+          ref={wrapperRef}
+          className="menu-overlay"
+        >
+          <MenuItem onClick={toggleMenu}>
             <Link to={"/"}>Home</Link>
-          </li>
-          <li>
+          </MenuItem>
+          <MenuItem onClick={toggleMenu}>
             <Link to={"/showcase"}>Showcase</Link>
-          </li>
-          <li>
+          </MenuItem>
+          <MenuItem onClick={toggleMenu}>
             <Link to={"/contact"}>Contact</Link>
-          </li>
-        </ul>
-        {opened && (
-          <ul ref={wrapperRef} className="menu-overlay">
-            <li>
-              <Link to={"/"}>Home</Link>
-            </li>
-            <li>
-              <Link to={"/showcase"}>Showcase</Link>
-            </li>
-            <li>
-              <Link to={"/contact"}>Contact</Link>
-            </li>
-          </ul>
-        )}
+          </MenuItem>
+        </Menu>
       </div>
     </nav>
   );

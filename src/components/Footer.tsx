@@ -6,14 +6,13 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 function Footer() {
   return (
     <>
-      <Divider />
       <footer className="footer-container">
-        <p>Footer</p>
         <div className="icons-list">
           <LinkedInIcon className="icon" />
           <GitHubIcon className="icon" />
           <InstagramIcon className="icon" />
         </div>
+        <p>@Papipaps</p>
       </footer>
     </>
   );

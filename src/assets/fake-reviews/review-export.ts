@@ -14,7 +14,7 @@ export const fakeTestimonials: TestimonyType[] = [
     celebrity: "Chef Pessos",
     job: "Fondateur et CEO de Oelazone",
     message:
-      "Ce développeur est incroyablement talentueux ! Il a réussi à rendre notre plateforme encore plus rapide et efficace, ce qui a considérablement amélioré l'expérience de nos clients. Nous sommes vraiment reconnaissants pour tout son travail !",
+      "Un miracle ! Il a réussi à rendre notre plateforme encore plus rapide et efficace, les employés pourront enfin faire des pauses repas de plus de 5 min !",
   },
   {
     celebrity: "Elon Muskateer",
