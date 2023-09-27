@@ -63,12 +63,11 @@ const Home = () => {
             <div className="hero-right">
               <Carousel
                 images={[
-                  "/(3).png",
-                  "/(8).png",
-                  "/(9).png",
-                  "/(10).png",
-                  "/(18).png",
-                  "/(21).png",
+                  "/images/m_1.png",
+                  "/images/m_2.png",
+                  "/images/m_3.png",
+                  "/images/m_4.png",
+                  "/images/m_5.png",
                 ]}
               />
             </div>

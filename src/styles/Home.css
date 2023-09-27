@@ -55,7 +55,7 @@ li {
 .about-wrapper {
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .hero-right {
@@ -93,7 +93,7 @@ li {
   opacity: 0.6;
   width: 16px;
   height: 8px;
-  background: rgb(163, 162, 162); 
+  background: rgb(163, 162, 162);
   cursor: pointer;
 }
 
@@ -103,7 +103,7 @@ li {
 /* DESKTOP */
 @media (width >= 800px) {
   .about-wrapper {
-    margin: 190px 0 100px 0;
+    margin: 270px 0;
     padding: 0 150px;
   }
   .hero-message {
@@ -171,12 +171,6 @@ li {
     border-radius: 5px;
     padding: 10px 15px;
     background: var(--accent-color);
-  }
-}
-
-@media (width <= 1150px) {
-  .about-wrapper {
-    padding-left: 50px;
   }
 }
 
@@ -287,7 +281,7 @@ li {
   }
 
   .testimony-wrapper {
-    margin-bottom: 100px ;
+    margin-bottom: 100px;
     padding: 0;
   }
   .about-wrapper {

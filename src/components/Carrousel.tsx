@@ -11,27 +11,48 @@ type CarouselProps = {
 const Carrousel: React.FC<CarouselProps> = ({ images }) => {
   const [carouselIndex, setCarouselIndex] = useState<number>(0);
   const carouselImg = useRef<HTMLImageElement>(null);
+  const intervalRef = useRef<number | null>(null);
+  const CAROUSEL_TIME = 5000;
+
+  function resetInterval() {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = setInterval(() => {
+        setCarouselIndex((i) => (i >= images.length - 1 ? 0 : i + 1));
+      }, CAROUSEL_TIME);
+    }
+  }
+
+  function handleNextImage() {
+    setCarouselIndex((prev) => (prev < images.length - 1 ? prev + 1 : 0));
+    resetInterval();
+  }
+
+  function handlePreviousImage() {
+    setCarouselIndex((prev) => (prev !== 0 ? prev - 1 : images.length - 1));
+    resetInterval();
+  }
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCarouselIndex((i) => {
-        if (i >= images.length - 1) {
-          return 0;
-        } else {
-          return i + 1;
-        }
-      });
-    }, 7000);
-    return () => clearInterval(interval);
+    intervalRef.current = setInterval(() => {
+      setCarouselIndex((i) => (i >= images.length - 1 ? 0 : i + 1));
+    }, CAROUSEL_TIME);
+
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
   }, []);
 
   useLayoutEffect(() => {
     const carousel = carouselImg.current;
-    if (carousel) {
+     if (carousel) {
+      console.log(carousel)
       let ctx = gsap.context(() => {
         gsap.fromTo(
           carousel,
-          { filter: "blur(10px)", opacity: 0.7 },
+          { filter: "blur(2px)", opacity: 0.7 },
           { filter: "blur(0px)", opacity: 1, duration: 2 }
         );
       });
@@ -43,23 +64,18 @@ const Carrousel: React.FC<CarouselProps> = ({ images }) => {
     <div className="carousel-container">
       <ChevronLeftIcon
         className="carousel-left"
-        onClick={() =>
-          setCarouselIndex((prev) =>
-            prev !== 0 ? prev - 1 : images.length - 1
-          )
-        }
+        onClick={handlePreviousImage}
       />
-      <ChevronRightIcon
-        className="carousel-right"
-        onClick={() =>
-          setCarouselIndex((prev) => (prev < images.length - 1 ? prev + 1 : 0))
-        }
-      />
-      <img
-        ref={carouselImg}
-        src={images[carouselIndex]}
-        className="carousel-img"
-      />
+      <ChevronRightIcon className="carousel-right" onClick={handleNextImage} />
+      {images.map((img, i) => (
+        <div
+          key={i}
+          className="carousel-img"
+          style={{ top: `-${carouselIndex * 100}%` }}
+        >
+          <img ref={carouselImg} src={img} />
+        </div>
+      ))}
     </div>
   );
 };
