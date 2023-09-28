@@ -1,11 +1,11 @@
-import lottie_thinking from "/src/assets/lottie/thinking.json"
-import lottie_autonomous from "/src/assets/lottie/autonomous.json"
-import lottie_art from "/src/assets/lottie/art.json"
-import lottie_teamwork from "/src/assets/lottie/teamwork.json"
+import lottie_thinking from "./art.json";
+import lottie_autonomous from "./autonomous.json";
+import lottie_art from "./art.json";
+import lottie_teamwork from "./teamwork.json";
 
 export const anims = {
-    lottie_art,
-    lottie_autonomous,
-    lottie_teamwork,
-    lottie_thinking
-}
+  lottie_art,
+  lottie_autonomous,
+  lottie_teamwork,
+  lottie_thinking,
+};

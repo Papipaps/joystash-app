@@ -59,8 +59,8 @@ function CharactersGrid(props: Props) {
     selectedAudio?.play();
   };
   const handleCharacterHover = () => {
-    const audio = new Audio(select1)
-    audio.volume = 0.3
+    const audio = new Audio(select1);
+    audio.volume = 0.3;
     audio.play();
   };
 
@@ -110,7 +110,7 @@ function CharactersGrid(props: Props) {
         ease: "power4.in",
       }
     );
-  } 
+  }
 
   useEffect(() => {
     let interval: number;

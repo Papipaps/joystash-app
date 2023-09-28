@@ -1,9 +1,8 @@
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import "../styles/About.css";
 import Card from "./Card";
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import { undrawSVG } from "../assets/drawings/svg-exports";
 import Lottie from "lottie-react";
 import { anims } from "../assets/lottie/lottie-export";
 
@@ -14,7 +13,7 @@ type SkillType = {
   name: string;
   description: string;
   color?: string;
-  lottie?: string;
+  lottie?: Record<string, any>;
 };
 
 const softSkills: SkillType[] = [

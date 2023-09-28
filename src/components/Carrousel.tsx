@@ -47,8 +47,8 @@ const Carrousel: React.FC<CarouselProps> = ({ images }) => {
 
   useLayoutEffect(() => {
     const carousel = carouselImg.current;
-     if (carousel) {
-      console.log(carousel)
+    if (carousel) {
+      console.log(carousel);
       let ctx = gsap.context(() => {
         gsap.fromTo(
           carousel,

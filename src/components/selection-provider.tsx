@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import { createContext, useState } from "react";
 
 // On définit le type pour notre contexte
 interface IContextProps {
@@ -13,7 +13,7 @@ interface IProviderProps {
 const defaultValue = {
   selected: 1,
   setSelected: (value: number) => {},
-}
+};
 
 // On crée notre contexte avec une valeur initiale
 export const SelectionContext = createContext<IContextProps>(defaultValue);

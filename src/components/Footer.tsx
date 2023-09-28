@@ -1,4 +1,3 @@
-import { Divider } from "@mui/material";
 import "../styles/Footer.css";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";

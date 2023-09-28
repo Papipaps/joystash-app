@@ -58,11 +58,11 @@
   filter: brightness(1) grayscale(0);
   cursor: pointer;
 }
-.img-wrapper {  
-  border: solid; 
+.img-wrapper {
+  border: solid;
   height: 500px;
 }
-.img-wrapper img { 
+.img-wrapper img {
   height: 100%;
   min-height: 500px;
   object-fit: cover;

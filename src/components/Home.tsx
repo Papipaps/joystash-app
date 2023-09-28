@@ -1,23 +1,14 @@
 import "../styles/Home.css";
 import Carousel from "./Carrousel";
-import Drawings from "../assets/drawings/drawings-exports";
 import About from "./About";
 import Footer from "./Footer";
-import { useLayoutEffect, useRef, useState } from "react";
 import Navbar from "./Navbar";
 import TechIcons from "../assets/tech/techimages-export";
 import BulletList from "./BulletList";
-import { fakeTestimonials } from "../assets/fake-reviews/review-export";
 import Testimony from "./Testimony";
-import { gsap } from "gsap";
 import { useNavigate } from "react-router-dom";
-import { undrawSVG } from "../assets/drawings/svg-exports";
 import { Divider } from "@mui/material";
-{
-  /* <TODO>
-responsive de la section ABOUT, le design du choix des qualités
-</TODO> */
-}
+
 const techSkills = [
   {
     name: "Java",

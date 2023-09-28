@@ -3,7 +3,7 @@ type Props = {
 };
 
 function CharacterIcon({ img }: Props) {
-  return <img src={img}/>;
+  return <img src={img} />;
 }
 
 export default CharacterIcon;

@@ -19,7 +19,7 @@
 .banner-overlay .title {
   height: fit-content;
   font-family: "Staatliches", cursive;
-  position: absolute; 
+  position: absolute;
 }
 .title {
   display: flex;

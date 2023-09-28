@@ -1,7 +1,7 @@
 import { SelectionProvider } from "./selection-provider";
 import UNIB from "./UNIB";
 import "../styles/Showcase.css";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import Button from "@mui/material/Button";
 import { gsap } from "gsap";
 import Navbar from "./Navbar";
@@ -101,7 +101,10 @@ function Showcase() {
         <main className="showcase-container">
           <Navbar />
           <h1>Selectionnez un composant</h1>
-          <p>Le <span>Showcase</span> me sert d'expérimentation, c'est ici que je mets les tests. J'en rajouterai au fur et à mesure. </p>
+          <p>
+            Le <span>Showcase</span> me sert d'expérimentation, c'est ici que je
+            mets les tests. J'en rajouterai au fur et à mesure.{" "}
+          </p>
           <div className="buttons">
             {components.map((component) => (
               <button

@@ -21,11 +21,11 @@ nav h3 {
   justify-content: space-around;
   list-style: none;
   -webkit-user-select: none;
-  -ms-user-select: none; 
+  -ms-user-select: none;
   user-select: none;
 }
 
-.menu-wrapper { 
+.menu-wrapper {
   height: 100%;
   display: flex;
   align-items: center;
@@ -55,15 +55,15 @@ nav h3 {
     display: flex;
     justify-content: center;
     list-style: none;
-  } 
+  }
 
-  .menu-wrapper:hover {  
+  .menu-wrapper:hover {
     filter: brightness(0.9);
   }
-  .menu-wrapper {  
+  .menu-wrapper {
     border-top: 1px solid rgba(0, 0, 0, 0.1);
   }
-} 
+}
 
 .menu-overlay a {
   padding: 10px;

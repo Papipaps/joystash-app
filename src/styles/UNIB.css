@@ -1,21 +1,27 @@
 .selection-background {
-    background: linear-gradient(-45deg,  #1f0303, #530000, #35001b, #330033, #000000);
-    background-size: 200% 200%;
-    overflow: hidden; 
-    height: 100vh;
-    width: 100vw;
-    animation: gradient 15s ease infinite;
+  background: linear-gradient(
+    -45deg,
+    #1f0303,
+    #530000,
+    #35001b,
+    #330033,
+    #000000
+  );
+  background-size: 200% 200%;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
   }
-  
-  @keyframes gradient {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
+  50% {
+    background-position: 100% 50%;
   }
-  
+  100% {
+    background-position: 0% 50%;
+  }
+}

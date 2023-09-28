@@ -1,4 +1,4 @@
-p{
+p {
   text-align: center;
 }
 .bullet-wrapper {
@@ -59,7 +59,7 @@ p{
 
 .bullet-description {
   margin: 0;
-  max-width: 450px; &
+  max-width: 450px;
   text-align: left;
 }
 
@@ -73,7 +73,7 @@ p{
   padding: 15px;
 }
 
-.bullet-list li { 
+.bullet-list li {
   text-align: center;
   height: fit-content;
   background: white;
@@ -88,7 +88,7 @@ p{
 
 .bullet-detail {
   max-width: 500px;
-  min-width: 270px; 
+  min-width: 270px;
   height: 150px;
 }
 
@@ -97,7 +97,7 @@ p{
     flex-direction: column;
     align-items: center;
   }
-  .bullet-detail{
+  .bullet-detail {
     /* margin-bottom: 100px; */
   }
   .bullet-title {

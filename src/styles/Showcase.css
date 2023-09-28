@@ -53,8 +53,8 @@
   left: 20%;
 }
 .showcase-text2 {
-    top: 55%;
-    left: 30%;
+  top: 55%;
+  left: 30%;
 }
 
 [class^="showcase-text"] {
@@ -69,8 +69,8 @@
   font-family: var(--title-font);
   font-style: italic;
 }
-@media (width<800px){
-  .showcase-container{
+@media (width<800px) {
+  .showcase-container {
     padding: 0 30px;
   }
   .showcase-text1 {
@@ -81,18 +81,17 @@
     top: 50%;
     left: 5%;
   }
-  
-  [class^="showcase-text"] { 
+
+  [class^="showcase-text"] {
     max-width: none;
     width: 100%;
     min-width: 400px;
     padding: 10px 60px;
-    font-size: 4rem; 
+    font-size: 4rem;
   }
-  
 }
 
-.back-button:hover{
+.back-button:hover {
   filter: brightness(0.95) opacity(1);
 }
 .back-button {

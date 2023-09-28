@@ -1,12 +1,10 @@
 import { Link } from "react-router-dom";
 import "../styles/Navbar.css";
 import MenuIcon from "@mui/icons-material/Menu";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Button, Menu, MenuItem } from "@mui/material";
 
-
 function Navbar() {
-  const [opened, setOpened] = useState<boolean>(false);
   const wrapperRef = useRef(null);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -19,17 +17,13 @@ function Navbar() {
     setAnchorEl(null);
   };
 
-  function toggleMenu() {
-    setOpened((prevState) => !prevState);
-  }
-
   return (
     <nav>
       <div className="menu-wrapper">
         <Button onClick={handleClick} className="burger-menu">
-          <MenuIcon/>
+          <MenuIcon />
           PAPIPAPS
-        </Button> 
+        </Button>
         <Menu
           id="basic-menu"
           anchorEl={anchorEl}
@@ -41,13 +35,13 @@ function Navbar() {
           ref={wrapperRef}
           className="menu-overlay"
         >
-          <MenuItem onClick={toggleMenu}>
+          <MenuItem>
             <Link to={"/"}>Home</Link>
           </MenuItem>
-          <MenuItem onClick={toggleMenu}>
+          <MenuItem>
             <Link to={"/showcase"}>Showcase</Link>
           </MenuItem>
-          <MenuItem onClick={toggleMenu}>
+          <MenuItem>
             <Link to={"/contact"}>Contact</Link>
           </MenuItem>
         </Menu>
